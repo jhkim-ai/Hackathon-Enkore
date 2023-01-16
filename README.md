@@ -1,16 +1,16 @@
 # Enkore 프로젝트 환경설정
 
 ### 1. Node.js, Git 설치
-```
-nodejs(v.18.13.0 LTS): https://nodejs.org/ko/
-git: https://git-scm.com/downloads
-```
+
+`Node.js(v.18.13.0 LTS)`: https://nodejs.org/ko/ <br>
+`git`: https://git-scm.com/downloads
+
 ### 2. Node.js 버전 확인 (v.18.13.0)
 ```
 $ nvm ls
 ```
 
-###### 2-1. Node.js(v.18.13.0) 버전이 아닐 경우 설치 후 적용
+###### 2-1. Node.js(v.18.13.0) 버전이 아닐 경우 설치 및 적용
 ```
 $ nvm install 18
 $ nvm use 18.13.0
