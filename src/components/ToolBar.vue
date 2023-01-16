@@ -23,6 +23,7 @@
 
 <script>
 import UserStatus from './UserStatus.vue';
+
 export default {
   components: { 
     UserStatus, 
