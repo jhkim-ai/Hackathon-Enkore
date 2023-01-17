@@ -1,14 +1,25 @@
 <template>
 <div>
     <funding-tool-bar></funding-tool-bar>
-    <h2>name: {{ $route.query }}</h2>
-    <h2>name: {{ $route.query.param1 }}</h2>
-    <h2>age: {{ $route.query.param2 }}</h2>
+    <div data-tiara-layer="top_summary" class="wrap_visual">
+        <div kagetype="c360" class="cont_visual" style="background-size: cover; background-color: rgb(59, 56, 32); background-image: url(&quot;https://mud-kage.kakaocdn.net/dn/cJHB5s/btrUlQWFExw/2fvrCRUrFlLsyRyRYdBD60/c360.jpg&quot;);">
+            <div class="front_pack">
+                <span class="tag_group"></span>
+                <h4 class="tit_visual ellipsis_type1">{{ $route.query.param1 }}</h4>
+                <span class="txt_sponsor ellipsis_g">{{ $route.query.param2 }}</span>
+                <fundraising-badges>
+                    <div class="badge_group" style="color: #fafafa;">
+                        블라블라 블라리 블라 ~~~  내용들어가는 칸으로 사용
+                    </div>
+                </fundraising-badges>
+            </div>
+        </div>
+    </div>
     <div class="info_state">
-        <span class="total_fund">1,437,800
-            <span class="txt_won">원</span>
+        <span class="total_fund">50
+            <span class="txt_won">주</span>
         </span>
-        <span class="txt_goal" style = "display: block; padding-top: 1px; font-size: 17px;text-align: center;">2,100,000원 목표</span>
+        <span class="txt_goal" style = "display: block; padding-top: 1px; font-size: 17px;text-align: center;">2000주 목표</span>
         <div id="animate-area" class="chart_fund pack_type2">
             <span class="progress_road">
                 <span class="screen_out">현재 진행상태</span>
@@ -34,22 +45,21 @@
         <strong class="screen_out">기부액 현황</strong>
         <dl class="detail_fund">
             <dt class="tit_fund"> 직접기부 (138명) </dt>
-            <dd class="txt_fund"> 1,014,400원 </dd>
-            <dt class="tit_fund"> 참여기부 (4,198명) </dt>
-            <dd class="txt_fund"> 423,400원 </dd>
+            <dd class="txt_fund"> 50주 </dd>
         </dl>
         <dl class="detail_fund fund_belong">
-            <dt class="tit_fund"> ㄴ 응원기부 (2,919명) </dt>
-            <dd class="txt_fund"> 291,900원 </dd>
-            <dt class="tit_fund"> ㄴ 공유기부 (197명) </dt>
-            <dd class="txt_fund"> 19,700원 </dd>
-            <dt class="tit_fund"> ㄴ 댓글기부 (1,078명) </dt>
-            <dd class="txt_fund"> 107,800원 </dd>
-            <dt class="tit_fund"> ㄴ 기부쿠폰<!----> (4명) </dt>
-            <dd class="txt_fund"> 4,000원 </dd>
+            <dt class="tit_fund"> ㄴ 삼성전자 (30명) </dt>
+            <dd class="txt_fund"> 40주 </dd>
+            <dt class="tit_fund"> ㄴ 현대자동차 (1명) </dt>
+            <dd class="txt_fund"> 2주 </dd>
+            <dt class="tit_fund"> ㄴ 기아차 (1명) </dt>
+            <dd class="txt_fund"> 1주 </dd>
+            <dt class="tit_fund"> ㄴ 삼성SDS (1명) </dt>
+            <dd class="txt_fund"> 2주 </dd>
         </dl>
         <dl class="detail_fund"></dl>
     </div>
+    <!--h2>name: {{ $route.query }}</h2-->
 </div>
 </template>
   

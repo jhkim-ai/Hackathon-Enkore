@@ -12,7 +12,7 @@
       <li class="listcard">
         <intersection-observer>
           <fundraising-card>
-            <router-link class="p_card" :to="{ name: 'DonateDetail', query: { param1: 1, param2: 'Hello' } }" >
+            <router-link class="p_card" :to="{ name: 'DonateDetail', query: { param1: '기부내용 타이틀 자리', param2: '재단이름'} }" >
               <span class="box_thumb">
               <span kagetype="c203" class="img_thumb" style="background-image: url(&quot;https://mud-kage.kakaocdn.net/dn/dlBtfK/btrVqgNnWSk/ifk5ZSEIkaK8A3oMLENq1k/c203.jpg&quot;);"></span>
               </span>
