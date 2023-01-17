@@ -1,5 +1,6 @@
 <template>
 <div>
+    <funding-tool-bar></funding-tool-bar>
     <h2>name: {{ $route.query }}</h2>
     <h2>name: {{ $route.query.param1 }}</h2>
     <h2>age: {{ $route.query.param2 }}</h2>
@@ -53,10 +54,17 @@
 </template>
   
 <script>
+import FundingToolBar from '@/components/FundingToolBar.vue'
 export default {
-  
+    components: { FundingToolBar },
 }
 </script>
   
 <style>
+.vue-divider {
+    display: flex;
+    width: 60%;
+    justify-content: center;
+    margin: auto;
+}
 </style>
