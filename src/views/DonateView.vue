@@ -12,7 +12,7 @@
       <li class="listcard">
         <intersection-observer>
           <fundraising-card>
-            <a data-tiara-layer="p_card" data-tiara-action-name="프로젝트모금함_카드_클릭" class="link_pack" href="/fundraisings/101652">
+            <router-link class="p_card" :to="{ name: 'DonateDetail', query: { param1: 1, param2: 'Hello' } }" >
               <span class="box_thumb">
               <span kagetype="c203" class="img_thumb" style="background-image: url(&quot;https://mud-kage.kakaocdn.net/dn/dlBtfK/btrVqgNnWSk/ifk5ZSEIkaK8A3oMLENq1k/c203.jpg&quot;);"></span>
               </span>
@@ -35,7 +35,7 @@
                 </span><!---->
                 <span class="price_goal"><!----><!----> 795,900원 </span>
               </span>
-            </a>
+            </router-link>
           </fundraising-card>
         </intersection-observer>
       </li>
@@ -50,8 +50,17 @@
 <script>
 import "@/assets/css/kakao.css";
 export default {
-
+  name: "DonateView",
+  methods: {
+    clickList() {
+      this.$router.push({
+        name: "Query",
+        query: { name: "Query 프로그래밍 방식", age: 2 },
+      });
+    },
+  },
 }
+
 </script>
 
 <style>
