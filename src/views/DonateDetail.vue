@@ -1,6 +1,7 @@
 <template>
 <div>
     <funding-tool-bar></funding-tool-bar>
+    <div class="outer-line">
     <div data-tiara-layer="top_summary" class="wrap_visual">
         <div kagetype="c360" class="cont_visual" style="background-size: cover; background-color: rgb(59, 56, 32); background-image: url(&quot;https://mud-kage.kakaocdn.net/dn/cJHB5s/btrUlQWFExw/2fvrCRUrFlLsyRyRYdBD60/c360.jpg&quot;);">
             <div class="front_pack">
@@ -60,6 +61,7 @@
         <dl class="detail_fund"></dl>
     </div>
     <!--h2>name: {{ $route.query }}</h2-->
+    </div>
 </div>
 </template>
   
@@ -70,11 +72,16 @@ export default {
 }
 </script>
   
-<style>
+<style scoped>
 .vue-divider {
     display: flex;
     width: 60%;
     justify-content: center;
     margin: auto;
+}
+
+.outer-line {
+    margin: 30px auto;
+    width: 60%;
 }
 </style>
