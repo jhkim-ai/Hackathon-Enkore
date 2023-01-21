@@ -3,6 +3,7 @@ import VueRouter from 'vue-router';
 import HomeView from '../views/HomeView.vue';
 import FundingView from '../views/FundingView.vue';
 import DonateView from '../views/DonateView.vue';
+import DonateDetail from '../views/DonateDetail.vue';
 
 Vue.use(VueRouter);
 
@@ -26,6 +27,12 @@ export const router = new VueRouter({
     {
       path: '/donate',
       component: DonateView,
-    }
+    },
+    {
+      path: '/donate/detail',
+      component: DonateDetail,
+      name: 'DonateDetail',
+      props: true,
+    },
   ],
 });
