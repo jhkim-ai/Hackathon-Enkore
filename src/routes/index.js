@@ -4,11 +4,15 @@ import HomeView from '../views/HomeView.vue';
 import FundingView from '../views/FundingView.vue';
 import DonateView from '../views/DonateView.vue';
 import DonateDetail from '../views/DonateDetail.vue';
+import FundingDetail from '../views/FundingDetailView.vue';
 
 Vue.use(VueRouter);
 
 export const router = new VueRouter({
   mode: 'history',
+  scrollBehavior() { 
+    return { x: 0, y: 0 } 
+  },
   routes: [
     {
       path: '/',
@@ -23,6 +27,12 @@ export const router = new VueRouter({
     {
       path: '/fund',
       component: FundingView,
+    },
+    {
+      path: '/fund/detail',
+      component: FundingDetail,
+      name: 'FundingDetail',
+      props: true,
     },
     {
       path: '/donate',

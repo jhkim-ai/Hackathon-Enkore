@@ -1,6 +1,5 @@
 <template>
-<div>
-    <donate-tool-bar></donate-tool-bar>
+  <div>
     <div class="outer-line">
     <div data-tiara-layer="top_summary" class="wrap_visual">
         <div kagetype="c360" class="cont_visual" style="background-size: cover; background-color: rgb(59, 56, 32); background-image: url(&quot;https://mud-kage.kakaocdn.net/dn/cJHB5s/btrUlQWFExw/2fvrCRUrFlLsyRyRYdBD60/c360.jpg&quot;);">
@@ -62,25 +61,15 @@
     </div>
     <!--h2>name: {{ $route.query }}</h2-->
     </div>
-</div>
+  </div>
 </template>
-  
+
 <script>
-import DonateToolBar from '@/components/DonateToolBar.vue'
 export default {
-    components: { DonateToolBar },
+
 }
 </script>
-  
-<style scoped>
-.vue-divider {
-    display: flex;
-    width: 60%;
-    justify-content: center;
-    margin: auto;
-}
-.outer-line {
-    margin: 30px auto;
-    width: 60%;
-}
+
+<style>
+
 </style>
