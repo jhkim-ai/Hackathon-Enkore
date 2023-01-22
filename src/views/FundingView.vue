@@ -98,18 +98,22 @@ export default {
   width: 100px;
   line-height: 20px;
   text-indent: 0px;
-  margin-left: 75px;
+  margin-left: 10%;
   margin-top: -9px;
 }
+.list_fund li {
+  margin: 40px 0.5% 0 0.5%;
+}
 .list_fund_size {
-  padding-left: 75px;
+  padding-left: 10%;
 }
 .search_box_outer {
   display: flex;
   justify-content: flex-end;
 }
 .search_box_inner {
-  margin: -35px 80px 12px 0px;
+  /* margin: -35px 80px 12px 0px; */
+  margin: -2% 80px 12px 0px;
   width: 300px;
 }
 </style>
