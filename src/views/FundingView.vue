@@ -113,7 +113,7 @@ export default {
 }
 .search_box_inner {
   /* margin: -35px 80px 12px 0px; */
-  margin: -2% 80px 12px 0px;
+  margin: -35px 80px 12px 0px;
   width: 300px;
 }
 </style>
