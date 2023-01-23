@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import FundingToolBar from '@/components/FundingToolBar.vue'
+import FundingToolBar from '@/components/funding/FundingToolBar.vue'
 export default {
   components: {
     FundingToolBar,  
