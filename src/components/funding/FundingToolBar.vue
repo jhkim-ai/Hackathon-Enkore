@@ -38,8 +38,10 @@
         </div>
       </div>
 
-      <div class="detail_inner_right_box">
-        <funding-order></funding-order>
+      <div class="detail_outer_right_box">
+        <div class="detail_inner_right_box">
+          <funding-order></funding-order>
+        </div>
       </div>
     </div>
   </div>
@@ -88,19 +90,27 @@ export default {
   box-shadow: 0 1px 0 0 rgb(0 0 0 / 10%);
 }
 .detail_outer_box {
-  margin: 20px auto;
+  margin: 0 auto;
   width: 90%;
 }
 .detail_inner_left_box {
   float: left;
-  width: 60%;
+  margin: 20px 0 0 0;
   padding: 0 25px 0 5px;
+  width: 60%;
   box-shadow: 1px 1px 1px 1px rgb(100 100 0 / 10%);
 }
-.detail_inner_right_box {
+.detail_outer_right_box {
   float: right;
+  margin: 20px 0 0 0;
   padding: 0 5px 0 25px;
   width: 40%;
+  height: 2500px;
   box-shadow: 1px 1px 1px 1px rgb(50 0 100 / 10%);
+}
+.detail_inner_right_box {
+  position: sticky;
+  top: 0;
+  /* z-index:1; */
 }
 </style>
