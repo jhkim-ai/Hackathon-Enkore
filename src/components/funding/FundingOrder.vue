@@ -3,10 +3,10 @@
     <div class="service_title">
       <h4>category</h4>
       <i class="fas fa-gift funding_menu">&nbsp; Main 메뉴명(의결권펀딩)</i>
-      <div class="funding_title"><b>[Title] 제목입니다.</b></div>
+      <div class="funding_title"><b>[삼성전자] 청렴결백 대표자</b></div>
       <div class="funding_sub_title">
-        [밀폐는 물론 전자렌지까지 쌉가능!] 위생적인 스텐으로 오래오래 사용하세요. 
-        20년 스텐전문가의 역작, 전자레인지 인증, 항균뚜껑 친환경 세라믹 스텐밀폐용기 - 비오스코 프레쉬!
+        여러분들이 주신 한표 한표 힘받아 투명한 주주총회가 될 수 있도록 보여드리겠습니다.
+        이번 주주총회에서 새로운 이사/감사를 통해 New 삼성에 박차를 가하는 삼성전자가 되도록 힘을 쏟겠습니다.
       </div>
       <div class="achievement_area">
         <span class="achievement_rate">2,530</span>
