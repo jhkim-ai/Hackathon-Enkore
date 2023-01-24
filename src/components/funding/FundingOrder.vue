@@ -23,30 +23,6 @@
         </v-chip>
       </div>
 
-      <div class="order_divider">
-        <v-divider class="mt-3 mb-4"></v-divider>
-      </div>
-      
-      <div class="order_btn_group">
-        <button>
-          <div class="button_icon_area">
-            <div class="mdi mdi-heart-outline button_icon_img"></div>
-            <div class="button_icon_info">1,234</div>
-          </div>
-        </button>
-        <button>
-          <div class="button_icon_area">
-            <div class="mdi mdi-export-variant button_icon_img"></div>
-            <div class="button_icon_info">1,234</div>
-          </div>
-        </button>
-        <button class="button_submit_area">
-          <div class="button_submit_info">
-              <b>펀딩하기</b>
-          </div>
-        </button>
-      </div>
-
       <div>
         <v-card
           class="mx-auto mt-5"
@@ -119,6 +95,31 @@
           </div>
         </v-card>
       </div>
+
+      <div class="order_divider mt-3 mb-4">
+      </div>
+      
+      <div class="order_btn_group">
+        <button>
+          <div class="button_icon_area">
+            <div class="mdi mdi-heart-outline button_icon_img"></div>
+            <div class="button_icon_info">1,234</div>
+          </div>
+        </button>
+        <button>
+          <div class="button_icon_area">
+            <div class="mdi mdi-export-variant button_icon_img"></div>
+            <div class="button_icon_info">1,234</div>
+          </div>
+        </button>
+        <button class="button_submit_area">
+          <div class="button_submit_info">
+              <b>펀딩하기</b>
+          </div>
+        </button>
+      </div>
+
+      
 
     </div>
   </div>
