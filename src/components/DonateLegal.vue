@@ -82,7 +82,9 @@
                     <li>회사는 메이커와 상호 협의 하에 프로젝트를 취소할 수 있으며, 펀딩 종료 후 프로젝트가 취소될 경우에는 펀딩금이 반환됩니다.</li>
                     <li>하자가 있는 경우, 리워드 반송을 위한 배송비는 메이커가 부담하여야 하고 하자가 없는 경우에는 리워드 반송 및 재반송에 대한 배송비를 서포터에게 청구될 수 있습니다.</li>
                 </ul>
-                <div class="moreInfo">※ 더 자세한 사항은&nbsp;<a href="/web/wterms/funding_refund" target="_blank" rel="nofollow noopener noreferrer" class="link">펀딩금 반환 정책</a>에서 확인하세요.</div>
+                <div class="moreInfo" style="margin-bottom: 20px">※ 더 자세한 사항은&nbsp;
+                    <a href="/web/wterms/funding_refund" target="_blank" rel="nofollow noopener noreferrer" class="link">펀딩금 반환 정책</a>에서 확인하세요.
+                </div>
                 <hr>
             </div>
         </div>

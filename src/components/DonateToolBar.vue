@@ -9,16 +9,17 @@
       height="30"
       >
         <v-tab
-            v-for="(item, idx) in tabData.items"
+            v-for="(item) in tabData.items"
             :key="item"
           >
-            {{idx}} + {{ item }}
+            {{ item }}
         </v-tab>
       </v-tabs>
     </div>
 
     <div class="detail_outer_box">
-      <div v-if="tabData.tab == 0">
+      <div class="detail_inner_left_box">
+        <div v-if="tabData.tab == 0">
         <DonateStory></DonateStory>
       </div>
       <div v-else-if="tabData.tab == 1">
@@ -26,7 +27,7 @@
       </div>
       <div v-else-if="tabData.tab == 2">
         <div class="outer-line">
-          <iframe src="https://search.daum.net/search?w=news&nil_search=btn&DA=NTB&enc=utf8&cluster=y&cluster_page=1&q=%EC%9E%AC%EB%8B%A8%EC%9D%B4%EB%A6%84" title="새소식"  style="width:100%; height:800px"></iframe>
+          <donate-News></donate-News>
         </div>
       </div>
       <div v-else-if="tabData.tab == 3">
@@ -35,7 +36,14 @@
       <div v-else-if="tabData.tab == 4">
         <DonateSupport></DonateSupport>
       </div>
+      </div>
+      <div class="detail_outer_right_box">
+        <div class="detail_inner_right_box">
+          <donate-next></donate-next>
+        </div>
+      </div>
     </div>
+
   </div>
 </template>
 
@@ -45,10 +53,12 @@ import DonateStory   from './DonateStory.vue'
 import DonateCommu   from './DonateCommu.vue'
 import DonateSupport from './DonateSupport.vue'
 import DonateLegal   from './DonateLegal.vue'
+import DonateNews    from './DonateNews.vue'
+import DonateNext    from './DonateNext.vue'
 
 export default {
   components: { 
-    DonateStory, DonateCommu , DonateSupport, DonateLegal
+    DonateStory, DonateCommu , DonateSupport, DonateLegal, DonateNews , DonateNext
   },
   data () {
     return {
@@ -65,15 +75,37 @@ export default {
 </script>
 
 <style scoped>
+.detail_outer_box {
+  margin: 0 auto;
+  width: 90%;
+}
+.detail_inner_left_box {
+  float: left;
+  margin: 20px 0 0 0;
+  padding: 0 25px 0 5px;
+  width: 60%;
+  box-shadow: 1px 1px 1px 1px rgb(100 100 0 / 10%);
+}
+.detail_outer_right_box {
+  float: right;
+  margin: 20px 0 0 0;
+  padding: 0 5px 0 25px;
+  width: 40%;
+  height: 2500px;
+  box-shadow: 1px 1px 1px 1px rgb(50 0 100 / 10%);
+}
+.detail_inner_right_box {
+  position: sticky;
+  top: 0;
+}
+.content_outer_box {
+  box-shadow: 0 1px 0 0 rgb(0 0 0 / 10%);
+}
 .sub-donate-toolbar {
-  margin: 30px auto;
+  margin: 25px auto;
   display: flex;
   width: 60%;
   justify-content: center;
   box-shadow: 0 1px 0 0 rgb(0 0 0 / 10%);
-}
-.detail_outer_box {
-  margin: 30px auto;
-  width: 60%;
 }
 </style>
