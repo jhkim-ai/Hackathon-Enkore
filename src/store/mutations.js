@@ -9,6 +9,6 @@ export default {
 	// 3. 함수의 두 번째 파라미터는 'data'로 고정 (/store/actions.js의 commit 함수가 사용된 곳의 data를 전달받음)
 
 	SET_TEST(state, data) {
-		state.test = data;
+		state.test = data; // state에 data를 전달
 	},
 }
