@@ -98,7 +98,7 @@ export default {
   margin: 20px 0 0 0;
   padding: 0 25px 0 5px;
   width: 60%;
-  box-shadow: 1px 1px 1px 1px rgb(100 100 0 / 10%);
+  /* box-shadow: 1px 1px 1px 1px rgb(100 100 0 / 10%); */
 }
 .detail_outer_right_box {
   float: right;
@@ -106,7 +106,7 @@ export default {
   padding: 0 5px 0 25px;
   width: 40%;
   height: 2500px;
-  box-shadow: 1px 1px 1px 1px rgb(50 0 100 / 10%);
+  /* box-shadow: 1px 1px 1px 1px rgb(50 0 100 / 10%); */
 }
 .detail_inner_right_box {
   position: sticky;
