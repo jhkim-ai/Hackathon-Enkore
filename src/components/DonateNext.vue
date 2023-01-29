@@ -124,7 +124,7 @@
           </button>
         </div-->
         <article id="mArticle">
-        <div data-tiara-layer="sign sign_button" changeclassbyoffset="" fixedreachedelementid="wrapbutton" fixeddirection="bottom" fixedclass="btn_static" class="fund_float btn_static">
+        <div data-tiara-layer="sign sign_button" changeclassbyoffset="" fixedreachedelementid="wrapbutton" fixeddirection="bottom" fixedclass="btn_static" class="fund_float btn_static" style="display: contents">
             <button type="button" class="btn_g btn_cheer">
                 <span class="ico_together ico_cheer"></span>
                 <span class="txt_float txt_cheer">응원<span class="screen_out">하기</span>
