@@ -9,7 +9,7 @@
       5. data를 사용할 vue 페이지에서 /src/store/getters.js 를 이용하여 store에 저장된 data를 호출 <br>
     </p>
     <p> ** 참고1 (sample: Spring 서버 사용) ** </p>
-		<div v-for="(item, idx) in fetchedTest2" :key="idx">
+		<div v-for="item in fetchedTest2" :key="item.USER_NAME">
       userId: {{item.USER_ID}} <br>
       userName: {{item.USER_NAME}} <br>
       userStat: {{item.USER_STAT}} <br>
