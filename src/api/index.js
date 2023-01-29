@@ -6,10 +6,10 @@ const config = {
 };
 
 // 2. API 함수들 정의
-function fetchNewsList() {
+function fetchTestList() {
 	return axios.get(`${config.baseUrl}/news/1.json`);
 }
 
 export {
-	fetchNewsList,
+	fetchTestList,
 }
