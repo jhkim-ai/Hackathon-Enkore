@@ -8,7 +8,15 @@
       4. /src/store/mutations.js 에서 data를 state의 변수에 binding <br> 
       5. data를 사용할 vue 페이지에서 /src/store/getters.js 를 이용하여 store에 저장된 data를 호출 <br>
     </p>
-    <p> ** 참고 (sample: vuex 사용) ** </p>
+    <p> ** 참고1 (sample: Spring 서버 사용) ** </p>
+		<div v-for="(item, idx) in fetchedTest2" :key="idx">
+      userId: {{item.USER_ID}} <br>
+      userName: {{item.USER_NAME}} <br>
+      userStat: {{item.USER_STAT}} <br>
+      <hr>
+    </div>
+    <br>
+    <p> ** 참고2 (sample: vuex 사용) ** </p>
 		<div v-for="(item, idx) in fetchedTest" :key="idx">
       id: {{item.id}} <br>
       title: {{item.title}} <br>
@@ -30,10 +38,12 @@ export default {
   },
   created() {
 		this.$store.dispatch('FETCH_TEST');
+    this.$store.dispatch('FETCH_TEST2');
   },
   computed: {
     ...mapGetters([
       'fetchedTest',
+      'fetchedTest2',
     ]),
   }
 }

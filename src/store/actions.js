@@ -1,4 +1,4 @@
-import { fetchTestList } from '../api/index.js';
+import { fetchTestList, fetchTest2List } from '../api/index.js';
 
   // [actions.js]
 	// 정의: /api/index.js 의 API 호출 함수를 사용하여 data를 mutations로 전달
@@ -17,7 +17,18 @@ export default {
 	FETCH_TEST(context) {
 		fetchTestList()
 			.then(response => {
+        console.log(response);
 				context.commit('SET_TEST', response.data); // mutations에 data를 전달					
+			})
+			.catch(error => {
+				console.log(error);
+      })
+	},
+
+  FETCH_TEST2(context) {
+		fetchTest2List()
+			.then(response => {
+				context.commit('SET_TEST2', response.data);
 			})
 			.catch(error => {
 				console.log(error);

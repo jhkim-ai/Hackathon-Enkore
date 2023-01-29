@@ -11,4 +11,8 @@ export default {
 	SET_TEST(state, data) {
 		state.test = data; // state에 data를 전달
 	},
+
+	SET_TEST2(state, data) {
+		state.test2 = data;
+	},
 }
