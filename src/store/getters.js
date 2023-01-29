@@ -9,4 +9,7 @@ export default {
   fetchedTest(state) {
     return state.test; // state로부터 data를 전달받음
   },
+  fetchedTest2(state) {
+    return state.test2; // state로부터 data를 전달받음
+  },
 }

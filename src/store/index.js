@@ -9,6 +9,7 @@ Vue.use(Vuex);
 export const store = new Vuex.Store({ // 상태관리 도구
 	state: {
 		test: [],
+		test2: [],
 	},
 	getters,
 	mutations,
