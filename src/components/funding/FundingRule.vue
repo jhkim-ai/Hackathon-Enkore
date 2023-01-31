@@ -60,7 +60,7 @@ export default {
 
     connect() {
       // Stomp 소켓 통신 선언부
-      socket = new SockJS("/asd/asd" + "/socket");
+      socket = new SockJS("http://localhost:8282/socket");
       stomp = Stomp.over(socket);
 
       // subscribe&pub 정의
