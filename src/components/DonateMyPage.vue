@@ -1,0 +1,195 @@
+<template>
+<div>
+    <enkore-my-page></enkore-my-page>
+    <div id="mArticle">
+        <div class="donate_cont">
+            <h2 class="screen_out">마이페이지</h2>
+            <div data-tiara-layer="user" class="group_profile">
+                <h3 class="screen_out">내 프로필 정보</h3>
+                <div class="area_name">
+                    <div class="link_myprofile"><strong class="txt_nick">기부천사</strong>
+                        <!---->
+                        <div class="box_name">
+                            <!----><strong class="txt_name"> gom** </strong>
+                            <!---->
+                        </div>
+                    </div>
+                </div>
+                <!---->
+                <!---->
+                <div class="area_thumb"><a routerlink="badges" data-tiara-layer="talk_badge" data-tiara-action-name="스탬프_클릭" class="link_badge" href="/my/badges"><span class="badge_thumb"><img class="img_thumb" src="https://mud-kage.kakaocdn.net/dn/wAcMI/btqcJGCmdqi/8y3t5GRvKS78AoakgTkWZ1/img.png" alt="두근두근 설레는 첫 응원♡
+착한 일에 이유가 있나요~
+앞으로도 종종 '그냥' 응원해주세요."></span>
+                        <!----></a><a data-tiara-layer="profile_img" data-tiara-action-name="프로필수정_클릭" class="link_thumb" href="/preferences/profile"><span class="profile_thumb"><img profileimagecheck="" alt="프로필 사진" class="img_thumb" src="https://t1.kakaocdn.net/together_image/common/avatar/avatar03.png"></span>
+                        <!----></a>
+                    <!---->
+                    <!---->
+                </div>
+                <!---->
+                <!---->
+            </div>
+            <router-outlet></router-outlet>
+            <ng-component>
+                <div class="group_donate">
+                    <h3 class="tit_section section_type6">기부내역</h3>
+                    <div class="area_doselect">
+                        <div class="box_select">
+                            <div class="inner_box">
+                                <div class="opt_comm"><label for="opPeriod" class="screen_out">기간</label><select id="opPeriod" class="opt_select ng-valid ng-dirty ng-touched">
+                                        <option value="">전체</option>
+                                        <option value="1: 2023"> 2023 </option>
+                                        <option value="2: 2022"> 2022 </option>
+                                        <option value="3: 2021"> 2021 </option>
+                                        <option value="4: 2020"> 2020 </option>
+                                        <option value="5: 2019"> 2019 </option>
+                                        <!---->
+                                    </select><span class="box_arrow"><span class="ico_together ico_arrow"></span></span><span class="select_option select_on"> 전체 </span></div>
+                            </div>
+                            <div class="inner_box">
+                                <div class="opt_comm"><label for="opMeans" class="screen_out">기부방식</label><select id="opMeans" class="opt_select ng-untouched ng-pristine ng-valid">
+                                        <option>전체</option>
+                                        <option value="1: 0">직접기부</option>
+                                        <option value="2: 1">참여기부</option>
+                                    </select><span class="box_arrow"><span class="ico_together ico_arrow"></span></span><span class="select_option select_on"> 전체 </span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="area_receipt">
+                        <h4 class="tit_area"> 2020년 12월 <span class="emph_num">(1건)</span></h4>
+                        <div class="box_receipt">
+                            <ul class="list_receipt list_donate">
+                                <!---->
+                                <!---->
+                                <!---->
+                                <li class="item_donate">
+                                    <p class="txt_sumdata"> 2020.12.08 </p>
+                                    <p class="tit_sum"><a data-tiara-layer="title" data-tiara-action-name="모금함_클릭" class="link_sum" href="/fundraisings/81894">정보화시대로 다가가는 한 걸음</a></p>
+                                    <div class="donate_numinfo"><strong class="num_sumprice">100원</strong><span class="txt_sumprice"> 참여기부
+                                            <!---->
+                                            <!---->
+                                            <!---->
+                                            <!---->
+                                            <!---->(응원참여)
+                                            <!---->
+                                            <!---->
+                                            <!---->
+                                            <!---->
+                                            <!---->
+                                            <!----></span></div>
+                                    <div class="box_link">
+                                        <!---->
+                                        <!---->
+                                    </div>
+                                </li>
+                                <!---->
+                                <!---->
+                                <!---->
+                                <!---->
+                            </ul>
+                            <!---->
+                        </div>
+                    </div>
+                    <div class="area_receipt">
+                        <h4 class="tit_area"> 2020년 10월 <span class="emph_num">(1건)</span></h4>
+                        <div class="box_receipt">
+                            <ul class="list_receipt list_donate">
+                                <!---->
+                                <!---->
+                                <!---->
+                                <li class="item_donate">
+                                    <p class="txt_sumdata"> 2020.10.21 </p>
+                                    <p class="tit_sum"><a data-tiara-layer="title" data-tiara-action-name="모금함_클릭" class="link_sum" href="/fundraisings/80360">온(溫)택트 김장나눔</a></p>
+                                    <div class="donate_numinfo"><strong class="num_sumprice">100원</strong><span class="txt_sumprice"> 참여기부
+                                            <!---->
+                                            <!---->
+                                            <!---->
+                                            <!---->
+                                            <!---->(응원참여)
+                                            <!---->
+                                            <!---->
+                                            <!---->
+                                            <!---->
+                                            <!---->
+                                            <!----></span></div>
+                                    <div class="box_link">
+                                        <!---->
+                                        <!---->
+                                    </div>
+                                </li>
+                                <!---->
+                                <!---->
+                                <!---->
+                                <!---->
+                            </ul>
+                            <!---->
+                        </div>
+                    </div>
+                    <div class="area_receipt">
+                        <h4 class="tit_area"> 2019년 5월 <span class="emph_num">(1건)</span></h4>
+                        <div class="box_receipt">
+                            <ul class="list_receipt list_donate">
+                                <!---->
+                                <!---->
+                                <!---->
+                                <li class="item_donate">
+                                    <p class="txt_sumdata"> 2019.05.05 </p>
+                                    <p class="tit_sum"><a data-tiara-layer="title" data-tiara-action-name="모금함_클릭" class="link_sum" href="/fundraisings/62950">상처 속에서 피어난 꽃, 현주씨의 미소</a></p>
+                                    <div class="donate_numinfo"><strong class="num_sumprice">10,000원</strong><span class="txt_sumprice"> 직접기부 (카카오페이 카드)
+                                            <!---->
+                                            <!---->
+                                            <!---->
+                                            <!---->
+                                            <!---->
+                                            <!---->
+                                            <!---->
+                                            <!---->
+                                            <!---->
+                                            <!---->
+                                            <!----></span></div>
+                                    <div class="box_link"><a data-tiara-layer="certificate" data-tiara-action-name="기부증서보기_클릭" class="link_round">기부증서</a>
+                                        <!---->
+                                        <!---->
+                                    </div>
+                                </li>
+                                <!---->
+                                <!---->
+                                <!---->
+                                <!---->
+                            </ul>
+                            <!---->
+                        </div>
+                    </div>
+                    <!---->
+                    <!---->
+                    <div class="list_more" ><button type="button" class="link_round link_other2"><span class="screen_out">기부내역</span>더보기 </button></div>
+                </div>
+                <modal>
+                    <div tabindex="-1" role="dialog" class="ngdialog-content" id="modalOFF" style="position: fixed; display: none; top: 25%; margin-left: -192px;">
+                        <!---->
+                    </div>
+                </modal>
+                <modal>
+                    <div tabindex="-1" role="dialog" class="ngdialog-content" id="modalOFF" style="position: fixed; display: none; top: 288px; margin: 0px 0px 0px -230px;">
+                        <modal-content>
+                            <!---->
+                            <!---->
+                        </modal-content>
+                    </div>
+                </modal>
+                <!---->
+            </ng-component>
+            <!---->
+            <!---->
+        </div>
+    </div>
+</div>
+</template>
+
+<script>
+
+import EnkoreMyPage from '@/views/EnkoreMyPage.vue';
+export default {
+    name : "DonateMyPage",
+    components: { EnkoreMyPage},
+};
+</script>

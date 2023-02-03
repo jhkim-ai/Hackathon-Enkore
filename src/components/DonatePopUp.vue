@@ -10,11 +10,12 @@
                             <legend class="screen_out">기부금액 입력 양식</legend>
                             <div data-tiara-layer="donation donation_detail" class="wrap_fund">
                                 <dl class="list_pay">
+                                    <v-autocomplete :items="people" item-text="name" item-value="name" v-model="friends" return-object></v-autocomplete>
                                     <dt class="cate_write cate_fund"><span>기부금 결제</span></dt>
                                     <dd class="info_write info_fund">
                                         <p class="txt_info"> 무통장은 3천원, 기타 결제는 1천원부터 가능합니다. </p>
                                         <div class="box_digit">
-                                            <button type="button" data-tiara-layer="100" data-tiara-action-name="기부금액_클릭" class="btn_digit" @click="totalStock+=1" > + 1주
+                                            <button type="button" data-tiara-layer="100" data-tiara-action-name="기부금액_클릭" class="btn_digit" @click="totalStock+=1"> + 1주
                                                 <span class="screen_out">원 입력</span>
                                             </button>
                                             <button type="button" data-tiara-layer="1000" data-tiara-action-name="기부금액_클릭" class="btn_digit" @click="totalStock+=5"> + 5주
@@ -64,17 +65,33 @@
 </template>
 
 <script>
+
+import stockJSON from "@/assets/text/stockJSON.json";
+
 export default {
-    name : 'app',
+    name: 'app',
     data: () => {
         return {
-            totalStock: 0
+            totalStock: 0,
+            people: ""
         };
     },
-    methods : {
+    methods: {
         subDonate: function () {
             this.$parent.donate()
+        },
+        readStock: function(){
+            var stocklst = new Array()
+            var lst = Object.keys(stockJSON);            
+            Object.keys(lst).forEach(function(v){
+                stocklst.push({ name : lst[v] , symbol : stockJSON[lst[v]]});
+            })
+            this.people=stocklst
         }
+    },
+    mounted() {
+        console.log("호출");
+        this.readStock()
     }
 }
 </script>
