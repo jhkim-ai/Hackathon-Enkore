@@ -24,7 +24,6 @@ export default {
 				console.log(error);
       })
 	},
-
   FETCH_TEST2(context) {
 		fetchTest2List()
 			.then(response => {

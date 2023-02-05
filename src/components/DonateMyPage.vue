@@ -126,6 +126,7 @@
                             총기부금액 ~~ 한정 
                         </div>
                         <router-outlet>
+                            {{this.data}}
                         </router-outlet>
                     </div>
                 </div>
@@ -136,12 +137,30 @@
 </template>
 
 <script>
+
+import{ mapActions, mapState } from 'vuex';
 import EnkoreMyPage from '@/views/EnkoreMyPage.vue';
+
+
 export default {
     name: "DonateMyPage",
     components: {
         EnkoreMyPage
     },
+    mounted(){
+        console.log("HEDF")
+        this.init();
+    },
+    computed:{
+      ...mapState({
+          data: 'donateDB'  //this.date를 store.state.db에 매핑
+      })
+    },
+    methods:{
+        ...mapActions({
+            init: 'init_DonateDB' // this.init()을 this.$store.dispatch('dbInit')에 매핑
+        })
+    }
 };
 </script>
 
