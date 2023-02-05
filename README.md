@@ -44,3 +44,8 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+
+### Reference : Front-end
+- [x] Vuetify(Component) : [https://vuetifyjs.com/](https://vuetifyjs.com/)
+- [x] Pictogrammer(Icon) : [https://pictogrammers.com/library/mdi/](https://pictogrammers.com/library/mdi/)
