@@ -9,7 +9,9 @@
     <div class="toolbar-menu-link">
       <router-link to="/donate">배당금기부</router-link>
     </div>
-
+    <div class="toolbar-menu-link">
+      <router-link to="/myPage">마이페이지</router-link>
+    </div>
     <div class="project-btn">
       <user-status></user-status>
       <v-btn
