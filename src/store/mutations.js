@@ -15,4 +15,7 @@ export default {
 	SET_TEST2(state, data) {
 		state.test2 = data;
 	},
+	setDB(state,data){
+		state.donateDB=data;
+	},
 }
