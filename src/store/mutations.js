@@ -11,11 +11,14 @@ export default {
 	SET_TEST(state, data) {
 		state.test = data; // state에 data를 전달
 	},
-
 	SET_TEST2(state, data) {
 		state.test2 = data;
 	},
-	setDB(state,data){
+	SET_DONATE(state,data){
 		state.donateDB=data;
 	},
+	UPDATE_DONATE(state,data){
+		console.log("start... UPDATE_DONATE");
+		state.donateDB.push(data);
+	}
 }

@@ -12,4 +12,8 @@ export default {
   fetchedTest2(state) {
     return state.test2; // state로부터 data를 전달받음
   },
+  fetchedDonate(state) {
+    console.log("start... fetchedDonate");
+    return state.donateDB; // state로부터 data를 전달받음
+  },
 }

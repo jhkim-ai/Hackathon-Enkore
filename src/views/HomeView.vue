@@ -18,6 +18,7 @@
 import HomeCarousel from '../components/HomeCarousel.vue'
 import EsgNewsList from '../components/EsgNewsList.vue'
 import StockList from '../components/StockList.vue'
+import{ mapActions } from 'vuex';
 
 export default {
   components: { 
@@ -25,6 +26,15 @@ export default {
     StockList,
     HomeCarousel,
   },
+  mounted(){
+    console.log("... LOAD INIT DATA ... ");
+    this.init();
+  },
+  methods:{
+        ...mapActions({
+            init: 'INIT_DONATEDB' // this.init()을 this.$store.dispatch('dbInit')에 매핑
+        }),
+    }
 }
 </script>
 
