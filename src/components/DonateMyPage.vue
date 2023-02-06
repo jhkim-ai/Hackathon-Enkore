@@ -26,60 +26,21 @@
                                         <div class="opt_comm"><label for="opMeans" class="screen_out">기부방식</label><select id="opMeans" class="opt_select ng-untouched ng-pristine ng-valid">
                                                 <option>전체</option>
                                                 <option value="1: 0">직접기부</option>
-                                                <option value="2: 1">참여기부</option>
+                                                <option value="2: 1">익명기부</option>
                                             </select><span class="box_arrow"><span class="ico_together ico_arrow"></span></span><span class="select_option select_on"> 전체 </span></div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="area_receipt">
+                            <div v-for="item in fetchedDonate" :key="item.time" class="area_receipt">
                                 <h4 class="tit_area"> 2020년 12월 <span class="emph_num">(1건)</span></h4>
                                 <div class="box_receipt">
                                     <ul class="list_receipt list_donate">
                                         <li class="item_donate">
-                                            <p class="txt_sumdata"> 2020.12.08 </p>
-                                            <p class="tit_sum"><a data-tiara-layer="title" data-tiara-action-name="모금함_클릭" class="link_sum" href="/fundraisings/81894">정보화시대로 다가가는 한 걸음</a></p>
-                                            <div class="donate_numinfo"><strong class="num_sumprice">100원</strong><span class="txt_sumprice"> 참여기부
-                                                    (응원참여)
-                                                </span></div>
+                                            <p class="txt_sumdata"> ${this.getDate({{item.time}})} </p>
+                                            <p class="tit_sum"><a data-tiara-layer="title" data-tiara-action-name="모금함_클릭" class="link_sum" href="/fundraisings/81894">{{item.comment}}</a></p>
+                                            <div class="donate_numinfo"><strong class="num_sumprice">{{item.stock}}</strong>
+                                                <span class="txt_sumprice"> {{item.qty}}주 (익명기부 OR 직접기부)</span></div>
                                             <div class="box_link">
-                                            </div>
-                                        </li>
-                                    </ul>
-
-                                </div>
-                            </div>
-                            <div class="area_receipt">
-                                <h4 class="tit_area"> 2020년 10월 <span class="emph_num">(1건)</span></h4>
-                                <div class="box_receipt">
-                                    <ul class="list_receipt list_donate">
-
-                                        <li class="item_donate">
-                                            <p class="txt_sumdata"> 2020.10.21 </p>
-                                            <p class="tit_sum"><a data-tiara-layer="title" data-tiara-action-name="모금함_클릭" class="link_sum" href="/fundraisings/80360">온(溫)택트 김장나눔</a></p>
-                                            <div class="donate_numinfo"><strong class="num_sumprice">100원</strong><span class="txt_sumprice"> 참여기부
-                                                    (응원참여)
-                                                </span></div>
-                                            <div class="box_link">
-
-                                            </div>
-                                        </li>
-
-                                    </ul>
-
-                                </div>
-                            </div>
-                            <div class="area_receipt">
-                                <h4 class="tit_area"> 2019년 5월 <span class="emph_num">(1건)</span></h4>
-                                <div class="box_receipt">
-                                    <ul class="list_receipt list_donate">
-
-                                        <li class="item_donate">
-                                            <p class="txt_sumdata"> 2019.05.05 </p>
-                                            <p class="tit_sum"><a data-tiara-layer="title" data-tiara-action-name="모금함_클릭" class="link_sum" href="/fundraisings/62950">상처 속에서 피어난 꽃, 현주씨의 미소</a></p>
-                                            <div class="donate_numinfo"><strong class="num_sumprice">10,000원</strong><span class="txt_sumprice"> 직접기부 (카카오페이 카드)
-                                                </span></div>
-                                            <div class="box_link"><a data-tiara-layer="certificate" data-tiara-action-name="기부증서보기_클릭" class="link_round">기부증서</a>
-
                                             </div>
                                         </li>
                                     </ul>
@@ -125,9 +86,7 @@
                         <div>
                             총기부금액 ~~ 한정 
                         </div>
-                        <router-outlet>
-                            {{this.data}}
-                        </router-outlet>
+                            {{fetchedDonate}}
                     </div>
                 </div>
             </div>
@@ -138,7 +97,7 @@
 
 <script>
 
-import{ mapActions, mapState } from 'vuex';
+import{ mapGetters } from 'vuex';
 import EnkoreMyPage from '@/views/EnkoreMyPage.vue';
 
 
@@ -147,19 +106,15 @@ export default {
     components: {
         EnkoreMyPage
     },
-    mounted(){
-        console.log("HEDF")
-        this.init();
-    },
-    computed:{
-      ...mapState({
-          data: 'donateDB'  //this.date를 store.state.db에 매핑
-      })
+    computed: {
+        ...mapGetters([
+            'fetchedDonate',
+        ]),
     },
     methods:{
-        ...mapActions({
-            init: 'init_DonateDB' // this.init()을 this.$store.dispatch('dbInit')에 매핑
-        })
+        getDate(date){
+            return date.slice(0,4) + "." + date.slice(4,5) + "." + date.slice(5,6);
+        }
     }
 };
 </script>

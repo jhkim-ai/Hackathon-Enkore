@@ -1,6 +1,6 @@
 <template>
 <div>
-    <div id="app">
+    <div id="popup">
         <div v-show="is_show">
             <DonatePopUp></DonatePopUp>
         </div>
