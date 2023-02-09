@@ -65,7 +65,8 @@
                     <div class="detail_inner_right_box">
                         <div data-tiara-layer="user" class="group_profile">
                             <h3 class="screen_out">내 프로필 정보</h3>
-                            <div class="area_name">
+                            <div class="box_select">
+                                <div class="area_name">
                                 <div class="link_myprofile">
                                     <strong class="txt_nick">해커톤2조계정</strong>
                                     <div class="box_name">
@@ -73,14 +74,18 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="area_thumb"><a routerlink="badges" data-tiara-layer="talk_badge" data-tiara-action-name="스탬프_클릭" class="link_badge" href="/my/badges">
-                                <span class="badge_thumb">
-                                    <img class="img_thumb" src="https://mud-kage.kakaocdn.net/dn/wAcMI/btqcJGCmdqi/8y3t5GRvKS78AoakgTkWZ1/img.png" alt="두근두근 설레는 첫 응원♡
-착한 일에 이유가 있나요~
-앞으로도 종종 '그냥' 응원해주세요."></span>
-                                </a><a data-tiara-layer="profile_img" data-tiara-action-name="프로필수정_클릭" class="link_thumb" href="/preferences/profile"><span class="profile_thumb">
-                                    <img profileimagecheck="" alt="프로필 사진" class="img_thumb" src="https://t1.kakaocdn.net/together_image/common/avatar/avatar03.png"></span>
+                            <div class="area_thumb">
+                                <a routerlink="badges" data-tiara-layer="talk_badge" data-tiara-action-name="스탬프_클릭" class="link_badge" href="/my/badges">
+                                    <span class="badge_thumb">
+                                        <img class="img_thumb" src="https://mud-kage.kakaocdn.net/dn/wAcMI/btqcJGCmdqi/8y3t5GRvKS78AoakgTkWZ1/img.png">
+                                    </span>
                                 </a>
+                                <a data-tiara-layer="profile_img" data-tiara-action-name="프로필수정_클릭" class="link_thumb" href="/preferences/profile">
+                                    <span class="profile_thumb">
+                                        <img profileimagecheck="" alt="프로필 사진" class="img_thumb" src="https://t1.kakaocdn.net/together_image/common/avatar/avatar03.png">
+                                    </span>
+                                </a>
+                                </div>
                             </div>
                         </div>
                         <div>

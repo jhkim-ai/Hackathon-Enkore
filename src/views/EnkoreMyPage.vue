@@ -42,12 +42,12 @@ export default {
             drawer: true,
             items: [{
                     title: '의결권펀딩',
-                    icon: 'mdi-home',
+                    icon: 'mdi-vote',
                     to: '/'
                 },
                 {
                     title: '배당금기부',
-                    icon: 'mdi-information',
+                    icon: 'mdi-hand-heart',
                     to: '/myPageDonate'
                 },
             ]
