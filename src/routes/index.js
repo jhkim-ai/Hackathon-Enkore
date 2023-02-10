@@ -8,6 +8,7 @@ import FundingDetail from '../views/FundingDetailView.vue';
 import ProjectMake from '../views/ProjectMakeView.vue';
 import EnkoreMyPage from '../views/EnkoreMyPage.vue';
 import DonateMyPage from '../components/DonateMyPage.vue';
+import FundingMyPage from '../components/mypage/FundingMyPage.vue';
 
 Vue.use(VueRouter);
 
@@ -51,6 +52,12 @@ export const router = new VueRouter({
       path: '/myPage',
       component: EnkoreMyPage,
       name: 'EnkoreMyPage',
+      props: true,
+    },
+    {
+      path: '/myPageFunding',
+      component: FundingMyPage,
+      name: 'FundingMyPage',
       props: true,
     },
     {

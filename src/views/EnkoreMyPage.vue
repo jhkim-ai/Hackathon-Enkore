@@ -43,7 +43,7 @@ export default {
             items: [{
                     title: '의결권펀딩',
                     icon: 'mdi-vote',
-                    to: '/'
+                    to: '/myPageFunding'
                 },
                 {
                     title: '배당금기부',
