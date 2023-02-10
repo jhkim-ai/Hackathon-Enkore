@@ -5,6 +5,7 @@ import FundingView from '../views/FundingView.vue';
 import DonateView from '../views/DonateView.vue';
 import DonateDetail from '../views/DonateDetail.vue';
 import FundingDetail from '../views/FundingDetailView.vue';
+import ProjectMake from '../views/ProjectMakeView.vue';
 import EnkoreMyPage from '../views/EnkoreMyPage.vue';
 import DonateMyPage from '../components/DonateMyPage.vue';
 
@@ -41,6 +42,12 @@ export const router = new VueRouter({
       component: DonateView,
     },
     {
+      path: '/donate/detail',
+      component: DonateDetail,
+      name: 'DonateDetail',
+      props: true,
+    },
+    {
       path: '/myPage',
       component: EnkoreMyPage,
       name: 'EnkoreMyPage',
@@ -52,11 +59,13 @@ export const router = new VueRouter({
       name: 'DonateMyPage',
       props: true,
     },
+    //민주추가 부분(시작)
     {
-      path: '/donate/detail',
-      component: DonateDetail,
-      name: 'DonateDetail',
+      path: '/projectmake',
+      component: ProjectMake,
+      name: 'ProjectMake',
       props: true,
     },
+    //민주추가 부분(끝)
   ],
 });
