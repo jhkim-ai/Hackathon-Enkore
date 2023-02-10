@@ -125,7 +125,7 @@
       </v-card-title>
 
       <v-card-text class="py-2 white--text text-center">
-        {{ new Date().getFullYear() }}.{{ new Date().getMonth() }}.{{ new Date().getDate() }} — <strong>{{p_type}}</strong> 프로젝트
+        {{ new Date().getFullYear() }}.{{ new Date().getMonth() + 1 }}.{{ new Date().getDate() }} — <strong>{{p_type}}</strong> 프로젝트
         — <strong>{{ m_type }}</strong>
       </v-card-text>
     </v-card>
@@ -149,7 +149,7 @@
         class="mb-12"
         elevation="0"
         outlined
-        height="380px"
+        height="290px"
       >
     
       <!--step 3-1 내용(시작)-->
@@ -346,51 +346,6 @@
     </v-menu>
   </v-col>
 </v-row>
-</v-expansion-panel-content>
-</v-expansion-panel>
-
-<v-expansion-panel>
-    <v-expansion-panel-header width="500" height="400">
-        <template v-slot:default="{ open }">
-  <v-row no-gutters>
-    <v-col cols="4">
-        <strong>의제 찬반여부</strong>
-    </v-col>
-    <v-col
-      cols="8"
-      class="text--secondary"
-    >
-      <v-fade-transition leave-absolute>
-        <span
-          v-if="open"
-          key="0"
-        >
-          생성할 프로젝트와 관련된 의제 찬반여부를 선택해주세요.
-        </span>
-        <span
-          v-else
-          key="1"
-        >
-          {{ radios }}
-        </span>
-      </v-fade-transition>
-    </v-col>
-  </v-row>
-</template>
-    </v-expansion-panel-header>
-    <v-expansion-panel-content>
-    <v-radio-group v-model="radios">
-      <v-radio value="의제 찬성">
-        <template v-slot:label>
-          <div>프로젝트 주제에 대해 <strong class="success--text">찬성합니다</strong></div>
-        </template>
-      </v-radio>
-      <v-radio value="의제 반대">
-        <template v-slot:label>
-          <div>프로젝트 주제에 대해 <strong class="primary--text">반대합니다</strong></div>
-        </template>
-      </v-radio>
-    </v-radio-group>
 </v-expansion-panel-content>
 </v-expansion-panel>
 
@@ -715,19 +670,16 @@ SM의 주가는 지난 1년간 6~7만원을 횡보하며 주주에게 큰 실망
         <v-data-table
     :headers="headers"
     :items="desserts"
-    sort-by="calories"
+    sort-by="name"
     class="elevation-1"
   >
     <template v-slot:top>
       <v-toolbar
         flat
+        color="orange ligthen-5"
       >
-        <v-toolbar-title>의결권 위임 주주총회 안건</v-toolbar-title>
-        <v-divider
-          class="mx-4"
-          inset
-          vertical
-        ></v-divider>
+        <v-toolbar-title><strong>의결권 위임 주주총회 안건</strong></v-toolbar-title>
+
         <v-spacer></v-spacer>
         <v-dialog
           v-model="dialog"
@@ -753,53 +705,23 @@ SM의 주가는 지난 1년간 6~7만원을 횡보하며 주주에게 큰 실망
               <v-container>
                 <v-row>
                   <v-col
-                    cols="12"
-                    sm="6"
-                    md="4"
+                    cols="20"
+                    sm="10"
+                    md="10"
                   >
                     <v-text-field
                       v-model="editedItem.name"
-                      label="Dessert name"
+                      label="의안을 입력해주세요"
                     ></v-text-field>
                   </v-col>
                   <v-col
-                    cols="12"
-                    sm="6"
-                    md="4"
+                    cols="20"
+                    sm="10"
+                    md="10"
                   >
                     <v-text-field
                       v-model="editedItem.calories"
-                      label="Calories"
-                    ></v-text-field>
-                  </v-col>
-                  <v-col
-                    cols="12"
-                    sm="6"
-                    md="4"
-                  >
-                    <v-text-field
-                      v-model="editedItem.fat"
-                      label="Fat (g)"
-                    ></v-text-field>
-                  </v-col>
-                  <v-col
-                    cols="12"
-                    sm="6"
-                    md="4"
-                  >
-                    <v-text-field
-                      v-model="editedItem.carbs"
-                      label="Carbs (g)"
-                    ></v-text-field>
-                  </v-col>
-                  <v-col
-                    cols="12"
-                    sm="6"
-                    md="4"
-                  >
-                    <v-text-field
-                      v-model="editedItem.protein"
-                      label="Protein (g)"
+                      label="'찬성' 혹은 '반대'를 입력해주세요"
                     ></v-text-field>
                   </v-col>
                 </v-row>
@@ -820,18 +742,18 @@ SM의 주가는 지난 1년간 6~7만원을 횡보하며 주주에게 큰 실망
                 text
                 @click="save"
               >
-                수정하기
+                생성하기
               </v-btn>
             </v-card-actions>
           </v-card>
         </v-dialog>
         <v-dialog v-model="dialogDelete" max-width="500px">
           <v-card>
-            <v-card-title class="text-h5">Are you sure you want to delete this item?</v-card-title>
+            <v-card-title class="text-h5">해당 의안을 삭제하겠습니까?</v-card-title>
             <v-card-actions>
               <v-spacer></v-spacer>
-              <v-btn color="blue darken-1" text @click="closeDelete">Cancel</v-btn>
-              <v-btn color="blue darken-1" text @click="deleteItemConfirm">OK</v-btn>
+              <v-btn color="blue darken-1" text @click="closeDelete">취소</v-btn>
+              <v-btn color="blue darken-1" text @click="deleteItemConfirm">삭제한다</v-btn>
               <v-spacer></v-spacer>
             </v-card-actions>
           </v-card>
@@ -862,6 +784,27 @@ SM의 주가는 지난 1년간 6~7만원을 횡보하며 주주에게 큰 실망
       </v-btn>
     </template>
   </v-data-table>
+
+
+  <v-card>
+    <v-card-actions>
+      <v-spacer></v-spacer>
+      <v-btn
+        color="success"
+        depressed
+        @click="e1 = 4"
+      >
+        최종 작성 완료
+      </v-btn>
+      <v-btn
+        color="grey ligthen-2"
+        depressed
+        @click="e6 = 3"
+      >
+        뒤로 가기
+      </v-btn>
+    </v-card-actions>
+  </v-card>
 
     </v-stepper-content>
 
@@ -965,11 +908,11 @@ SM의 주가는 지난 1년간 6~7만원을 횡보하며 주주에게 큰 실망
         {
           text: '의안',
           align: 'start',
-          sortable: false,
+          sortable: true,
           value: 'name',
         },
         { text: '찬반여부', value: 'calories' },
-        { text: 'Actions', value: 'actions', sortable: false },
+        { text: '수정/삭제', value: 'actions', sortable: false },
       ],
       desserts: [],
       editedIndex: -1,
@@ -987,7 +930,7 @@ SM의 주가는 지난 1년간 6~7만원을 횡보하며 주주에게 큰 실망
 
     computed: {
       formTitle () {
-        return this.editedIndex === -1 ? 'New Item' : 'Edit Item'
+        return this.editedIndex === -1 ? '의안 추가하기' : '의안 변경하기'
       },
     },
 
@@ -1008,23 +951,23 @@ SM의 주가는 지난 1년간 6~7만원을 횡보하며 주주에게 큰 실망
       initialize () {
         this.desserts = [
           {
-            name: '(예시) 제52기 정기주주총회 소집결정의 건',
+            name: '(예시) 1. 제52기 정기주주총회 소집결정의 건',
             calories: '찬성',
           },
           {
-            name: '(예시) 제52기 정기주주총회 회의 목적사항 결정의 건',
+            name: '(예시) 2. 제52기 정기주주총회 회의 목적사항 결정의 건',
             calories: '반대',
           },
           {
-            name: '(예시) 2021년 사회공헌 매칭기금 운영계획 승인의 건',
+            name: '(예시) 3. 2021년 사회공헌 매칭기금 운영계획 승인의 건',
             calories: '반대',
           },
           {
-            name: '(예시) 삼성 준법감시위원회 설치 및 운영에 관한 협약 및 규정 개정의 건',
+            name: '(예시) 4. 삼성 준법감시위원회 설치 및 운영에 관한 협약 및 규정 개정의 건',
             calories: '반대',
           },
           {
-            name: '(예시) 학교법인 충남삼성학원 기부금 출연의 건',
+            name: '(예시) 5. 학교법인 충남삼성학원 기부금 출연의 건',
             calories: '찬성',
           },
         ]
