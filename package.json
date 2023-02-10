@@ -15,6 +15,7 @@
     "@fortawesome/vue-fontawesome": "^2.0.9",
     "axios": "^1.2.6",
     "core-js": "^3.8.3",
+    "request": "^2.88.2",
     "simple-peer": "^9.11.1",
     "sockjs-client": "^1.6.1",
     "vue": "^2.6.14",

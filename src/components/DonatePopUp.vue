@@ -11,7 +11,7 @@
                             <div data-tiara-layer="donation donation_detail" class="wrap_fund">
                                 <dl class="list_pay">
                                     <div>
-                                        <v-autocomplete :items="selStock" item-text="name" deletable-chips return-object @change="(items) => checkStock(items)"></v-autocomplete>
+                                        <v-autocomplete :items="selStock" item-text="name" deletable-chips return-object @change="(items) => eventStock(items)"></v-autocomplete>
                                         <v-checkbox v-model="checkbox1" color="success" :label="`${curStock} 현재 기부가능 주식 총 수 : ${curStockCnt.toString()}주`" value disabled></v-checkbox>
                                     </div>
                                     <dt class="cate_write cate_fund"><span>기부금 결제</span></dt>
@@ -129,6 +129,34 @@ export default {
                 });
             })
             this.selStock = stocklst
+        },
+        eventStock: function(value){
+            console.log(value);
+            this.calPayInfo(value);
+            this.checkStock(value);
+        },
+        calPayInfo: function(value){
+            console.log(value.name);
+            var xhr = new XMLHttpRequest();
+            var url = 'http://apis.data.go.kr/1160100/service/GetStocDiviInfoService/getDiviInfo'; /*URL*/
+            var queryParams = '?' + encodeURIComponent('serviceKey') + '='+'%2FwawSrA2L1Xoz%2Biif%2B8y6ruKkL%2BINj84RH%2FoQYQai1bJ9Gdsv4VfqKwqAwQhXh39qVkeuLo5fmdnDJtCgi%2F8mQ%3D%3D'; /*Service Key*/
+                queryParams += '&' + encodeURIComponent('pageNo') + '=' + encodeURIComponent('1'); /**/
+                queryParams += '&' + encodeURIComponent('numOfRows') + '=' + encodeURIComponent('10'); /**/
+                queryParams += '&' + encodeURIComponent('resultType') + '=' + encodeURIComponent('json'); /**/
+                queryParams += '&' + encodeURIComponent('basDt') + '=' + encodeURIComponent('20230208'); /**/
+                queryParams += '&' + encodeURIComponent('crno') + '=' + encodeURIComponent(''); /**/
+                queryParams += '&' + encodeURIComponent('stckIssuCmpyNm') + '=' + encodeURIComponent(value.name); /**/
+                xhr.open('GET', url + queryParams);
+                xhr.onreadystatechange = function () {
+                if (this.readyState == 4) {
+                    //alert('Status: '+this.status+'nHeaders: '+JSON.stringify(this.getAllResponseHeaders())+'nBody: '+this.responseText);
+                    //alert(this.responseText);
+                    //여기 그래프 그리는거 !~` 테스트 !~!
+                    console.log(this.responseText['body']);
+
+                }
+            };
+            xhr.send('');            
         },
         checkStock: function (value) {
             //여기 잔고 체크 로직 추가 
