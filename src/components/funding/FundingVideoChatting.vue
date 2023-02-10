@@ -1,10 +1,7 @@
 <template>
   <div>
-    <video ref="aaa_video" autoplay/>
-
-    <video ref="bbb_video" autoplay/>
-
-    <video ref="ccc_video3" autoplay/>
+    <video ref="local_video" autoplay/>
+    <video ref="remote_video" autoplay/>
   </div>
 </template>
 
@@ -21,7 +18,7 @@ export default {
   data() {
     return {
       // 접속한 id
-      myId: "aaa",
+      myId: "local",
       
       // caller의 stream 저장
       callerStream: "",
@@ -30,7 +27,6 @@ export default {
       peers: []
     }
   },
-
   mounted() {
     this.userSet();
   },
@@ -60,7 +56,7 @@ export default {
 
     connect() {
       // Stomp 소켓 통신 선언부
-      socket = new SockJS("http://localhost:8282/signal/stomp");
+      socket = new SockJS("http://localhost:8282/socket");
       stomp = Stomp.over(socket);
 
       // subscribe&pub 정의
@@ -68,21 +64,22 @@ export default {
 
           // 누군가 join 했을때 listen, 접속해 있는 전체 세션 리스트를 받는다.
           stomp.subscribe("/sub/video/joined-room-info", (data) => {
-
+            console.log("connect 1");
             // 접속해 있는 전체 세션 리스트
             let users = JSON.parse(data.body);
 
             // 마지막으로 접속한 user
             let topIdx = users.length - 1;
-            let joinedID = users[topIdx].id;
-
+            // let joinedID = users[topIdx].id;
+            console.log("users");
+            console.log(users);
             // 인원이 한명 이하거나, 자신이 join 일경우는 return
             if (topIdx <= 0 || users[topIdx].id === this.myId) return;
 
             // 아래 기술
             // 자신이 접속해 있는 상태에서, 새로운 클라이언트가 접속한 경우,
             // 해당 클라이언트와 연결하기 위한 메소드
-            this.initCall(joinedID);
+            this.initCall("remote");
           });
 
           // 자신이 접속했다는 socket send
@@ -91,9 +88,11 @@ export default {
             JSON.stringify({from: this.myId})
           );
 
+          console.log("connect 2");
+
           stomp.subscribe("/sub/video/caller-info", (data) => {
             data = JSON.parse(data.body);
-
+            console.log("connect 3");
             // 나에게서 오거나(from me) 혹은 나에게 온(to me)이 아니면 return
             if (data.from === this.myId || data.toCall !== this.myId) return;
         
@@ -112,7 +111,7 @@ export default {
 
     // 새로운 client가 접속했을 때, 해당 클라이언트와 연결할 Peer을 생성
     initCall(joinedID) {
-      
+      console.log("initCall 입니다");
       // peer 생성
       // sinmple peer 라이브러리
       const peer = new Peer({
