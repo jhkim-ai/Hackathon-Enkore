@@ -27,10 +27,10 @@ export default {
           src: require('../assets/main-image-3.png'),
         },
         {
-          src: require('../assets/main-image-1.png'),
+          src: require('../assets/main-image-4.png'),
         },
         {
-          src: require('../assets/main-image-2.png'),
+          src: require('../assets/main-image-5.png'),
         },
       ],
     };
