@@ -14,11 +14,15 @@
     </div>
     <div class="project-btn">
       <user-status></user-status>
+      <!--민주수정(시작)-->
+      <router-link to="/projectmake">
       <v-btn
         class="ma-2 cyan darken-2 white--text"
       >
-        프로젝트 생성하기
+      프로젝트 생성하기
       </v-btn>
+    </router-link>
+    <!--민주수정(끝)-->
     </div>
   </div>
 </template>
