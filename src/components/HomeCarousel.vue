@@ -18,19 +18,19 @@ export default {
     return {
       items: [
         {
-          src: require('../assets/aespa_karina4.jpg'),
+          src: require('../assets/main-image-1.png'),
         },
         {
-          src: require('../assets/aespa_karina3.jpg'),
+          src: require('../assets/main-image-2.png'),
         },
         {
-          src: require('../assets/aespa_karina2.jpg'),
+          src: require('../assets/main-image-3.png'),
         },
         {
-          src: require('../assets/aespa_karina.jpg'),
+          src: require('../assets/main-image-1.png'),
         },
         {
-          src: 'https://cdn.vuetifyjs.com/images/carousel/planet.jpg',
+          src: require('../assets/main-image-2.png'),
         },
       ],
     };
