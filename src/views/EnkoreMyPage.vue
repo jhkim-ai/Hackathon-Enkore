@@ -7,30 +7,18 @@
             <v-spacer />
         </v-app-bar>
     </v-card>
-    <v-navigation-drawer permanent expand-on-hover>
-        <!--v-list-item>
-            <v-list-item-avatar>
-                <v-icon>mdi-account</v-icon>
-            </v-list-item-avatar>
-
-            <v-list-item-content>
-                <v-list-item-title>John Leider</v-list-item-title>
-            </v-list-item-content>
-        </v-list-item-->
-        <v-divider />
+    <v-navigation-drawer v-model="drawer">
         <v-list dense>
             <v-list-item v-for="item in items" :key="item.title" link :to="item.to">
                 <v-list-item-icon>
                     <v-icon>{{ item.icon }}</v-icon>
                 </v-list-item-icon>
-
                 <v-list-item-content>
                     <v-list-item-title>{{ item.title }}</v-list-item-title>
                 </v-list-item-content>
             </v-list-item>
         </v-list>
     </v-navigation-drawer>
-    <router-view/>
 </v-EnkoreMyPage>
 </template>
 
@@ -39,7 +27,7 @@ export default {
     name: 'EnkoreMyPage',
     data() {
         return {
-            drawer: true,
+            drawer: false,
             items: [{
                     title: '의결권펀딩',
                     icon: 'mdi-vote',
