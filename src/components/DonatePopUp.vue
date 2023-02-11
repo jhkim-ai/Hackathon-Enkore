@@ -86,7 +86,7 @@
 
 <script>
 import stockJSON from "@/assets/text/stockJSON.json";
-import { mapMutations } from "vuex";
+import { mapMutations , mapGetters } from "vuex";
 
 export default {
     name: 'DonatePopUp',
@@ -99,6 +99,11 @@ export default {
             curStockCnt:0
         };
     },
+    computed: {
+        ...mapGetters([
+            'fetchedDonateCount',
+        ]),
+    },
     methods: {
         closeDialog: function(){
             this.$parent.donate();
@@ -108,6 +113,7 @@ export default {
             this.$parent.donate();
             var time = new Date();
             var row = {
+                seq : (this.fetchedDonateCount+1),
                 board: "1",
                 user: "ID임시발급#4656",
                 stock: this.curStock,

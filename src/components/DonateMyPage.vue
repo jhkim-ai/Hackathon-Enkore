@@ -31,12 +31,12 @@
                                     </div>
                                 </div>
                             </div>
-                            <div v-for="item in fetchedDonate" :key="item.time" class="area_receipt">
-                                <h4 class="tit_area"> 2020년 12월 <span class="emph_num">(1건)</span></h4>
+                            <div v-for="item in fetchedDonate" :key="item.seq" class="area_receipt">
+                                <h4 class="tit_area"> {{getTitleDate(item.time)}}<span class="emph_num">(1건)</span></h4>
                                 <div class="box_receipt">
                                     <ul class="list_receipt list_donate">
                                         <li class="item_donate">
-                                            <p class="txt_sumdata"> ${this.getDate({{item.time}})} </p>
+                                            <p class="txt_sumdata"> {{getDate(item.time)}} </p>
                                             <p class="tit_sum"><a data-tiara-layer="title" data-tiara-action-name="모금함_클릭" class="link_sum" href="/fundraisings/81894">{{item.comment}}</a></p>
                                             <div class="donate_numinfo"><strong class="num_sumprice">{{item.stock}}</strong>
                                                 <span class="txt_sumprice"> {{item.qty}}주 (익명기부 OR 직접기부)</span></div>
@@ -118,7 +118,10 @@ export default {
     },
     methods:{
         getDate(date){
-            return date.slice(0,4) + "." + date.slice(4,5) + "." + date.slice(5,6);
+            return date.slice(0,4) + "." + date.slice(4,6) + "." + date.slice(6,8);
+        },
+        getTitleDate(date){
+            return date.slice(0,4) + "년 " + date.slice(4,6).replace("0","") + "월";
         }
     }
 };

@@ -41,6 +41,7 @@ export default {
 		console.log("start ... INIT_DONATEDB");
 		const res = DONATE_FILE
 		const data = res.data.map(d=>({
+			seq : d.seq,
 			board: d.board,
 			user: d.user,
 			stock: d.stock,

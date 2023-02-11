@@ -17,8 +17,8 @@ export default {
 	SET_DONATE(state,data){
 		state.donateDB=data;
 	},
-	UPDATE_DONATE(state,data){
+	UPDATE_DONATE(state,row){
 		console.log("start... UPDATE_DONATE");
-		state.donateDB.push(data);
+		state.donateDB.push(row);
 	}
 }

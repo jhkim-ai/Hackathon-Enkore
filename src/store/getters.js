@@ -16,4 +16,8 @@ export default {
     console.log("start... fetchedDonate");
     return state.donateDB; // state로부터 data를 전달받음
   },
+  fetchedDonateCount(state) {
+    console.log("start... fetchedDonateCount");
+    return state.donateDB.length; // state로부터 data를 전달받음
+  },
 }
