@@ -76,27 +76,83 @@
                 <div class="whole2">
                     <div class="HeadText1">요금제를 선택해주세요</div>
                     <div class="text2">프로젝트 생성을 위해서는 결제가 필요합니다</div>
+
+                    <v-dialog
+                    v-model="dialog3"
+                    persistent
+                    max-width="540"
+                    >
+                    <template v-slot:activator="{ on, attrs }">
+
                     <div class="pic">
                         <div class="subpic2">
-                            <button class = "imbtn2" @click="e1 = 3, m_type='BASIC 요금제'">
+                            <button class = "imbtn2" v-bind="attrs" v-on="on"
+                             @click="m_type='BASIC 요금제', p_fee=2000">
                                 <v-img src="./FeePic1.png">
                                 </v-img>
                             </button>
                             
                         </div>
                         <div class="subpic2">
-                            <button class = "imbtn2" @click="e1 = 3, m_type='STANDARD 요금제'">
+                            <button class = "imbtn2" v-bind="attrs" v-on="on"
+                            @click="m_type='STANDARD 요금제', p_fee=10000">
                                 <v-img src="./FeePic2.png">
                                 </v-img>
                             </button>
                         </div>
                         <div class="subpic2">
-                            <button class = "imbtn2" @click="e1 = 3, m_type='VIP 요금제'">
+                            <button class = "imbtn2" v-bind="attrs" v-on="on"
+                            @click="m_type='VIP 요금제', p_fee=90000">
                                 <v-img src="./FeePic3.png">
                                 </v-img>
                             </button>
                         </div>
                     </div>
+
+                  </template>
+                  <v-card>
+                    <v-card-title class="text-h5">
+                    <bold>{{ p_fee }}원을 결제하시겠습니까?</bold>
+                    </v-card-title>
+                    <v-card-text>프로젝트 타입 : {{ p_type }}, 요금제 : {{ m_type }}</v-card-text>
+                    <v-card-text><strong>간편결제 비밀번호를 입력해주세요.</strong></v-card-text>
+                    <v-card-actions>
+                      <v-spacer></v-spacer>
+                      <div>
+                      <div class="ma-auto position-relative" style="max-width: 300px">
+                        <v-otp-input
+                          v-model="otp"
+                          type="password"
+                          :disabled="loading"
+                          @finish="onFinish"
+                        ></v-otp-input>
+                        <v-overlay absolute :value="loading">
+                          <v-progress-circular
+                            indeterminate
+                            color="primary"
+                          ></v-progress-circular>
+                        </v-overlay>
+                      </div>
+
+                      <v-snackbar
+                        v-model="snackbar"
+                        :color="snackbarColor"
+                        :timeout="2000"
+                      >
+                        {{ text }}
+                      </v-snackbar>
+                    </div>
+                      <v-spacer></v-spacer>
+                      <v-btn
+                        color="green darken-1"
+                        text
+                        @click="dialog3 = false"
+                      >
+                        취소하기
+                      </v-btn>
+                    </v-card-actions>
+                  </v-card>
+                  </v-dialog>
                 </div>
             </v-container>
 
@@ -619,13 +675,45 @@ SM의 주가는 지난 1년간 6~7만원을 횡보하며 주주에게 큰 실망
     <v-card-actions>
       <v-spacer></v-spacer>
       <div class v-if="p_type=='배당금기부'">
+      <v-dialog
+      v-model="dialog2"
+      persistent
+      max-width="540"
+      >
+      <template v-slot:activator="{ on, attrs }">
       <v-btn
         color="success"
         depressed
-        @click="e1 = 4"
+        v-bind="attrs"
+        v-on="on"
       >
         최종 작성 완료
       </v-btn>
+      </template>
+      <v-card>
+        <v-card-title class="text-h5">
+        <bold>{{ p_type }} 프로젝트를 생성하시겠습니까?</bold>
+        </v-card-title>
+        <v-card-text>프로젝트 명 : {{ trip.name }}</v-card-text>
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn
+            color="green darken-1"
+            text
+            @click="dialog2 = false"
+          >
+            취소하기
+          </v-btn>
+          <v-btn
+            color="green darken-1"
+            text
+            @click="dialog2 = false, e1 = 4"
+          >
+            생성하기
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+      </v-dialog>
       <v-btn
         color="grey ligthen-2"
         depressed
@@ -789,13 +877,45 @@ SM의 주가는 지난 1년간 6~7만원을 횡보하며 주주에게 큰 실망
   <v-card>
     <v-card-actions>
       <v-spacer></v-spacer>
+      <v-dialog
+      v-model="dialog2"
+      persistent
+      max-width="540"
+      >
+      <template v-slot:activator="{ on, attrs }">
       <v-btn
         color="success"
         depressed
-        @click="e1 = 4"
+        v-bind="attrs"
+        v-on="on"
       >
         최종 작성 완료
       </v-btn>
+    </template>
+      <v-card>
+        <v-card-title class="text-h5">
+        <bold>{{ p_type }} 프로젝트를 생성하시겠습니까?</bold>
+        </v-card-title>
+        <v-card-text>프로젝트 명 : {{ trip.name }}</v-card-text>
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn
+            color="green darken-1"
+            text
+            @click="dialog2 = false"
+          >
+            취소하기
+          </v-btn>
+          <v-btn
+            color="green darken-1"
+            text
+            @click="dialog2 = false, e1 = 4"
+          >
+            생성하기
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+      </v-dialog>
       <v-btn
         color="grey ligthen-2"
         depressed
@@ -924,6 +1044,15 @@ SM의 주가는 지난 1년간 6~7만원을 횡보하며 주주에게 큰 실망
         name: '',
         calories: '찬성',
       },
+      dialog2: false,
+      dialog3: false,
+      p_fee:0,
+      loading: false,
+      snackbar: false,
+      snackbarColor: 'default',
+      otp: '',
+      o_text: '',
+      expectedOtp: '123456',
       }
       
     },
@@ -948,6 +1077,18 @@ SM의 주가는 지난 1년간 6~7만원을 횡보하며 주주에게 큰 실망
     },
 
     methods: {
+      onFinish (rsp) {
+        this.loading = true
+        setTimeout(() => {
+          this.loading = false
+          this.snackbarColor = (rsp === this.expectedOtp) ? '결제완료' : '결제불가'
+          this.text = `Processed OTP with "${rsp}" (${this.snackbarColor})`
+          this.snackbar = true
+          this.e1 = (rsp === this.expectedOtp) ? 3 : 2
+          this.dialog3 = false
+        }, 3500)
+      },
+
       initialize () {
         this.desserts = [
           {
