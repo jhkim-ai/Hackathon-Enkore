@@ -76,9 +76,6 @@
                   </template>
                 </v-dialog>  
                 </div>              
-                <!-- <button class="webcam_chatting_btn mr-3">
-                  <div class="webcam_chatting_info">화상채팅하기</div>
-                </button> -->
               </div>
               <v-list-item-title class="text-h9 mb-1">
                 홍길동 <span style="font-size: 8px">변호사</span>

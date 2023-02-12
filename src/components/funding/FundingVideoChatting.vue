@@ -1,8 +1,8 @@
 <template>
   <div>
       <video id="local_video" ref="local_video" autoplay v-if="localState"/>
-      <video id="remote_video" ref="remote_video" autoplay/>
-      <v-btn @click="stop"> stop </v-btn>
+      <video id="remote_video" ref="remote_video" autoplay v-if="remoteState"/>
+      <!-- <v-btn @click="stop"> stop </v-btn> -->
   </div>
 </template>
 
