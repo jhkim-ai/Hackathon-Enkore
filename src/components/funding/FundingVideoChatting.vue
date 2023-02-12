@@ -1,18 +1,35 @@
 <template>
   <div>
-    <video ref="local_video" autoplay/>
-    <video ref="remote_video" autoplay/>
+      <video id="local_video" ref="local_video" autoplay v-if="localState"/>
+      <video id="remote_video" ref="remote_video" autoplay/>
+      <v-btn @click="stop"> stop </v-btn>
   </div>
 </template>
 
 <script>
 
-import Peer from "simple-peer";
-import SockJS from "sockjs-client";
-import Stomp from "webstomp-client";
-
 let socket;
-let stomp;
+
+// WebRTC variables
+let localStream;
+let myPeerConnection;
+
+let localVideo;
+let remoteVideo;
+
+// WebRTC STUN servers
+const peerConnectionConfig = {
+    'iceServers': [
+        {'urls': 'stun:stun.stunprotocol.org:3478'},
+        {'urls': 'stun:stun.l.google.com:19302'},
+    ]
+};
+
+// WebRTC media
+const mediaConstraints = {
+    audio: true,
+    video: true
+};
 
 export default {
   data() {
@@ -24,167 +41,342 @@ export default {
       callerStream: "",
         
       // 자신과 연결된 세션 peer를 저장
-      peers: []
+      peers: [],
+
+      localRoom: "3",
+      localUserName: this.uuidv4(),
+
+      localState: true,
+      remoteState: true,
     }
   },
+  created() {
+    this.myId = this.uuidv4();
+    console.log("myId: " + this.localUserName);
+  },
   mounted() {
-    this.userSet();
+    localVideo = this.$refs["local_video"];
+    remoteVideo = this.$refs["remote_video"];
+    this.connect();
   },
 
   methods: {
-    // 자신의 video 태그 연결 & stream 저장하는 메소드
-    // mounted() 에서 사용
-    async userSet() {
-
-      await navigator.mediaDevices
-        .getUserMedia({
-        video: true,
-        audio: true,
-      }).then((stream) => {
-        // stream 추출
-        let videoStream = new MediaStream(stream.getVideoTracks());
-        this.callerStream = stream;
-
-        // video 태그와 연결
-        this.$refs[this.myId + "_video"].srcObject = videoStream;
-
-        // 소켓 통신 연결 메소드
-        // 아래 기술.
-        this.connect();
-      });
+    log(message) {
+      console.log(message);
     },
-
+    
     connect() {
-      // Stomp 소켓 통신 선언부
-      socket = new SockJS("http://localhost:8282/socket");
-      stomp = Stomp.over(socket);
+      // 소켓 통신 선언부
+      socket = new WebSocket("ws://localhost:8282/signal");
 
-      // subscribe&pub 정의
-      stomp.connect({}, () => { // connectCallback
+      // add an event listener for a message being received
+      socket.onmessage = (msg => {
+          let message = JSON.parse(msg.data);
+          switch (message.type) {
+              case "text":
+                  this.log('Text message from ' + message.from + ' received: ' + message.data);
+                  break;
 
-          // 누군가 join 했을때 listen, 접속해 있는 전체 세션 리스트를 받는다.
-          stomp.subscribe("/sub/video/joined-room-info", (data) => {
-            console.log("connect 1");
-            // 접속해 있는 전체 세션 리스트
-            let users = JSON.parse(data.body);
+              case "offer":
+                  this.log('Signal OFFER received');
+                  this.handleOfferMessage(message);
+                  break;
 
-            // 마지막으로 접속한 user
-            let topIdx = users.length - 1;
-            // let joinedID = users[topIdx].id;
-            console.log("users");
-            console.log(users);
-            // 인원이 한명 이하거나, 자신이 join 일경우는 return
-            if (topIdx <= 0 || users[topIdx].id === this.myId) return;
+              case "answer":
+                  this.log('Signal ANSWER received');
+                  this.handleAnswerMessage(message);
+                  break;
 
-            // 아래 기술
-            // 자신이 접속해 있는 상태에서, 새로운 클라이언트가 접속한 경우,
-            // 해당 클라이언트와 연결하기 위한 메소드
-            this.initCall("remote");
+              case "ice":
+                  this.log('Signal ICE Candidate received');
+                  this.handleNewICECandidateMessage(message);
+                  break;
+
+              case "join":
+                  this.log("message");
+                  this.log(message);
+                  this.log('Client is starting to ' + (message.data === "true)" ? 'negotiate' : 'wait for a peer'));
+                  this.handlePeerConnection(message);
+                  break;
+
+              default:
+                  this.handleErrorMessage('Wrong type message received from server');
+          }
+      });
+
+      // add an event listener to get to know when a connection is open
+      socket.onopen = () => {
+          this.log('1. WebSocket connection opened to Room: #' + this.localRoom);
+          // send a message to the server to join selected room with Web Socket
+          this.sendToServer({
+              from: this.localUserName,
+              type: 'join',
+              data: this.localRoom
           });
+      };
 
-          // 자신이 접속했다는 socket send
-          stomp.send(
-            "/pub/video/joined-room-info",
-            JSON.stringify({from: this.myId})
-          );
+      // a listener for the socket being closed event
+      socket.onclose = (message) => {
+        this.log(message);
+        this.log('Socket has been closed');
+      };
 
-          console.log("connect 2");
+      // an event listener to handle socket errors
+      socket.onerror = (message) => {
+          this.handleErrorMessage("Error: " + message);
+      };
+    },
 
-          stomp.subscribe("/sub/video/caller-info", (data) => {
-            data = JSON.parse(data.body);
-            console.log("connect 3");
-            // 나에게서 오거나(from me) 혹은 나에게 온(to me)이 아니면 return
-            if (data.from === this.myId || data.toCall !== this.myId) return;
-        
-            // 아래 구현
-            // callig을 받은 시점에, return call을 보내 signaling한다.
-            // caller의 데이터를 받고, 내(callee)의 데이터를 보내는 과정
-            this.returnCall(data.signal, data.from);
+    stop() {
+        // send a message to the server to remove this client from the room clients list
+        this.log("Send 'leave' message to server");
+        this.sendToServer({
+            from: this.localUserName,
+            type: 'leave',
+            data: this.localRoom
+        });
+
+        if (myPeerConnection) {
+            this.log('Close the RTCPeerConnection');
+
+            this.localState = false;
+            this.remoteState = false;
+            // disconnect all our event listeners
+            myPeerConnection.onicecandidate = null;
+            myPeerConnection.ontrack = null;
+            myPeerConnection.onnegotiationneeded = null;
+            myPeerConnection.oniceconnectionstatechange = null;
+            myPeerConnection.onsignalingstatechange = null;
+            myPeerConnection.onicegatheringstatechange = null;
+            myPeerConnection.onnotificationneeded = null;
+            myPeerConnection.onremovetrack = null;
+
+            // Stop the videos
+            if (remoteVideo.srcObject) {
+                remoteVideo.srcObject.getTracks().forEach(track => track.stop());
+            }
+            if (localVideo.srcObject) {
+                localVideo.srcObject.getTracks().forEach(track => track.stop());
+            }
+
+            remoteVideo.src = null;
+            localVideo.src = null;
+
+            // close the peer connection
+            myPeerConnection.close();
+            myPeerConnection = null;
+
+            this.log('Close the socket');
+            if (socket != null) {
+                socket.close();
+            }
+        }
+    },
+
+    handleErrorMessage(message) {
+      console.error(message);
+    },
+
+    // use JSON format to send WebSocket message
+    sendToServer(msg) {
+      let msgJSON = JSON.stringify(msg);
+      socket.send(msgJSON);
+    },
+
+    // initialize media stream
+    getMedia(constraints) {
+      if (localStream) {
+          localStream.getTracks().forEach(track => {
+              track.stop();
           });
-        },
-
-      // onErrorCallback
-      () => {
-        console.log("ws error");
-      });
+      }
+      navigator.mediaDevices.getUserMedia(constraints)
+          .then(this.getLocalMediaStream).catch(this.handleGetUserMediaError);
     },
 
-    // 새로운 client가 접속했을 때, 해당 클라이언트와 연결할 Peer을 생성
-    initCall(joinedID) {
-      console.log("initCall 입니다");
-      // peer 생성
-      // sinmple peer 라이브러리
-      const peer = new Peer({
-        initiator: true,
-        trickle: false,
-        stream: this.callerStream,
-      });
-      
-      // caller의 signaling data를 새로 들어온 클라이언트에 send
-      peer.on("signal", (data) => {
-        
-        // calling을 시작한 클라이언트(caller)의 singal 데이터 socket send
-        stomp.send(
-          "/pub/video/caller-info",
-          JSON.stringify({
-            toCall: joinedID,
-            from: this.myId,
-            signal: data,
-          })
-        );
-      });
-
-      // 새로 들어온 클라이언트 video 연결
-      peer.on("stream", (stream) => {
-        this.$refs[joinedID + "_video"].srcObject = stream;
-      });
-
-      peer.on("error", (stream) => {
-        console.log("error" + stream);
-      });
-
-      // peer 저장.
-      this.peers.push([peer, this.myId, joinedID]);
+    // create peer connection, get media, start negotiating when second participant appears
+    handlePeerConnection(message) {
+        this.createPeerConnection();
+        this.getMedia(mediaConstraints);
+        if (message.data === "true") {
+            myPeerConnection.onnegotiationneeded = this.handleNegotiationNeededEvent;
+        }
     },
 
-    // caller에게 요청을 받은 상태에서 callee의 signal data return
-    returnCall(callerSignal, callerId) {
-      
-      // callee의 peer 생성
-      const peer = new Peer({
-        initiator: false,
-        trickle: false,
-        stream: this.callerStream,
-      });
+    createPeerConnection() {
+        myPeerConnection = new RTCPeerConnection(peerConnectionConfig);
 
-      // callee의 정보를 caller에게 보냄.
-      peer.on("signal", (data) => {
-        stomp.send(
-          "/pub/video/callee-info",
-          JSON.stringify({
-            from: this.myId,
-            to: callerId,
-            signal: data,
-          })
-        );
-      });
+        // event handlers for the ICE negotiation process
+        myPeerConnection.onicecandidate = this.handleICECandidateEvent;
+        myPeerConnection.ontrack = this.handleTrackEvent;
 
-      // caller 의 비디오 연결
-      peer.on("stream", (stream) => {
-        this.$refs[callerId + "_video"].srcObject = stream;
-      });
-
-      peer.on("error", (stream) => {
-        console.log("error" + stream);
-      });
-
-      // callee와 caller의 연결. => Signaling
-      // 이 시점에서 연결된다고 볼 수 있다.
-      peer.signal(callerSignal);
-      
-      // 연결된 peer 리스트에 push
-      this.peers.push([peer, this.myId, callerId]);
+        // the following events are optional and could be realized later if needed
+        // myPeerConnection.onremovetrack = handleRemoveTrackEvent;
+        myPeerConnection.oniceconnectionstatechange = this.handleICEConnectionStateChangeEvent;
+        // myPeerConnection.onicegatheringstatechange = handleICEGatheringStateChangeEvent;
+        // myPeerConnection.onsignalingstatechange = handleSignalingStateChangeEvent;
     },
+    
+    handleICEConnectionStateChangeEvent() {
+      let status = myPeerConnection.iceConnectionState;
+
+      if(status === "connected"){
+          this.log("status : "+status)
+          this.remoteState = true;
+      }else if(status === "disconnected"){
+          this.log("status : "+status)
+          this.remoteState = false;
+      }
+    },
+
+    // add MediaStream to local video element and to the Peer
+    getLocalMediaStream(mediaStream) {
+        this.localState = true;
+
+        localStream = mediaStream;
+        localVideo.srcObject = mediaStream;
+        localStream.getTracks().forEach(track => myPeerConnection.addTrack(track, localStream));
+    },
+
+    // handle get media error
+    handleGetUserMediaError(error) {
+        this.log('navigator.getUserMedia error: ', error);
+        switch(error.name) {
+            case "NotFoundError":
+                alert("Unable to open your call because no camera and/or microphone were found.");
+                break;
+            case "SecurityError":
+            case "PermissionDeniedError":
+                // Do nothing; this is the same as the user canceling the call.
+                break;
+            default:
+                alert("Error opening your camera and/or microphone: " + error.message);
+                break;
+        }
+
+        stop();
+    },
+
+    // send ICE candidate to the peer through the server
+    handleICECandidateEvent(event) {
+        if (event.candidate != null) {
+            this.sendToServer({
+                from: this.localUserName,
+                data: this.localRoom,
+                type: 'ice',
+                candidate: event.candidate
+            });
+            this.log('ICE Candidate Event: ICE candidate sent');
+        }
+    },
+
+    handleTrackEvent(event) {
+        this.log('Track Event: set stream to remote video element');
+        remoteVideo.srcObject = event.streams[0];
+    },
+
+    // WebRTC called handler to begin ICE negotiation
+    // 1. create a WebRTC offer
+    // 2. set local media description
+    // 3. send the description as an offer on media format, resolution, etc
+    handleNegotiationNeededEvent() {
+        this.log("handleNegotiationNeededEvent() 호출");
+        myPeerConnection.createOffer().then((offer) => {
+            return myPeerConnection.setLocalDescription(offer);
+        })
+            .then(() => {
+                this.sendToServer({
+                    from: this.localUserName,
+                    data: this.localRoom,
+                    type: 'offer',
+                    sdp: myPeerConnection.localDescription
+                });
+                this.log('Negotiation Needed Event: SDP offer sent');
+            })
+            .catch((reason) => {
+                // an error occurred, so handle the failure to connect
+                this.log('failure to connect error: ');
+                this.handleErrorMessage(reason);
+            });
+    },
+
+    handleOfferMessage(message) {
+        this.log('Accepting Offer Message');
+        this.log(message);
+        let desc = new RTCSessionDescription(message.sdp);
+        //TODO test this
+        if (desc != null && message.sdp != null) {
+            this.log('RTC Signalling state: ' + myPeerConnection.signalingState);
+            myPeerConnection.setRemoteDescription(desc).then(() => {
+                this.log("Set up local media stream");
+                return navigator.mediaDevices.getUserMedia(mediaConstraints);
+            })
+                .then((stream) => {
+                    this.log("-- Local video stream obtained");
+                    localStream = stream;
+                    try {
+                        localVideo.srcObject = localStream;
+                    } catch (error) {
+                        localVideo.src = window.URL.createObjectURL(stream);
+                    }
+
+                    this.log("-- Adding stream to the RTCPeerConnection");
+                    localStream.getTracks().forEach(track => myPeerConnection.addTrack(track, localStream));
+                })
+                .then(() => {
+                    this.log("-- Creating answer");
+                    // Now that we've successfully set the remote description, we need to
+                    // start our stream up locally then create an SDP answer. This SDP
+                    // data describes the local end of our call, including the codec
+                    // information, options agreed upon, and so forth.
+                    return myPeerConnection.createAnswer();
+                })
+                .then((answer) => {
+                    this.log("-- Setting local description after creating answer");
+                    // We now have our answer, so establish that as the local description.
+                    // This actually configures our end of the call to match the settings
+                    // specified in the SDP.
+                    return myPeerConnection.setLocalDescription(answer);
+                })
+                .then(() => {
+                    this.log("Sending answer packet back to other peer");
+                    this.sendToServer({
+                        from: this.localUserName,
+                        data: this.localRoom,
+                        type: 'answer',
+                        sdp: myPeerConnection.localDescription
+                    });
+
+                })
+                // .catch(handleGetUserMediaError);
+                .catch(this.handleErrorMessage)
+        }
+    },
+
+    handleAnswerMessage(message) {
+        this.log("The peer has accepted request");
+
+        // Configure the remote description, which is the SDP payload
+        // in our "video-answer" message.
+        // myPeerConnection.setRemoteDescription(new RTCSessionDescription(message.sdp)).catch(handleErrorMessage);
+        myPeerConnection.setRemoteDescription(message.sdp).catch(this.handleErrorMessage);
+    },
+
+    handleNewICECandidateMessage(message) {
+        let candidate = new RTCIceCandidate(message.candidate);
+        this.log("Adding received ICE candidate: " + JSON.stringify(candidate));
+        myPeerConnection.addIceCandidate(candidate).catch(this.handleErrorMessage);
+    },
+    closeVideo() {
+      remoteVideo.src = null;
+      localVideo.src = null;
+    },
+    uuidv4() { // UUID 생성
+      return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, (c) => {
+        let r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+        return v.toString(16);
+      });
+    }
   },
 }
   

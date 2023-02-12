@@ -40,11 +40,26 @@ export default {
 		this.$store.dispatch('FETCH_TEST');
     this.$store.dispatch('FETCH_TEST2');
   },
+  mounted() {
+    this.test2();
+  },
   computed: {
     ...mapGetters([
       'fetchedTest',
       'fetchedTest2',
     ]),
+  },
+  methods: {
+    test(val) {
+      console.log(val);
+    },
+    test2() {
+      console.log("test2");
+      this.test("kkk2");
+      setTimeout(() => {
+        this.test("kkk3");
+      }, 3000);
+    },
   }
 }
 </script>
