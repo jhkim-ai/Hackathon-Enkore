@@ -2,6 +2,7 @@ import { fetchTestList, fetchTest2List } from '../api/index.js';
 
 // 초기데이터 파일 읽어오기
 import DONATE_FILE from '../assets/db/DONATEDB.json'
+import BOARD_FILE from '../assets/db/BOARDDB.json'
 
   // [actions.js]
 	// 정의: /api/index.js 의 API 호출 함수를 사용하여 data를 mutations로 전달
@@ -50,5 +51,22 @@ export default {
 			time: d.time 
 		}))
 		commit('SET_DONATE',data);
+	},
+	INIT_BOARDDB({commit}){
+		console.log("start ... INIT_BOARDDB");
+		const res = BOARD_FILE
+		const data = res.data.map(d=>({
+			board : d.board,
+			title: d.title,
+			foundation: d.foundation,
+			goal: d.goal,
+			category: d.category,
+			bizno:d.bizno,
+			tno: d.tno,
+			address: d.address,
+			time: d.time,
+			note: d.note
+		}))
+		commit('SET_BOARD',data);
 	}
 }

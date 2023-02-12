@@ -1,6 +1,6 @@
 <template>
 <v-EnkoreMyPage>
-    <v-card color="grey lighten-4" flat>
+    <v-card class="mx-auto" flat elevation="4">
         <v-app-bar color="secondary" dark dense>
             <v-app-bar-nav-icon @click="drawer = !drawer" />
             <v-toolbar-title>마이페이지</v-toolbar-title>

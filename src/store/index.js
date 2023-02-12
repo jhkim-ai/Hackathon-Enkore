@@ -13,6 +13,7 @@ export const store = new Vuex.Store({ // 상태관리 도구
 		test: [],
 		test2: [],
 		donateDB:[],
+		board:[],
 	},
 	getters,
 	mutations,

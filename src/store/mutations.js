@@ -17,8 +17,15 @@ export default {
 	SET_DONATE(state,data){
 		state.donateDB=data;
 	},
+	SET_BOARD(state,data){
+		state.board=data;
+	},
 	UPDATE_DONATE(state,row){
 		console.log("start... UPDATE_DONATE");
 		state.donateDB.push(row);
+	},
+	ADD_BOARD(state,row){
+		console.log("start... ADD_BOARD");
+		state.board.push(row);
 	}
 }

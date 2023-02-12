@@ -20,4 +20,29 @@ export default {
     console.log("start... fetchedDonateCount");
     return state.donateDB.length; // state로부터 data를 전달받음
   },
+  fetcheBoard(state) {
+    console.log("start... fetcheBoard");
+    return state.board; // state로부터 data를 전달받음
+  },
+  fetcheBoardCurInfo(state) {
+    console.log("start... fetcheBoardCurInfo");
+    console.log(state.board);
+    var res = [];
+    for(var key in state.board){
+      var lst = {};
+      for(var tar in state.donateDB){
+        if(state.board[key].board===state.donateDB[tar].board){
+          if(Object.prototype.hasOwnProperty.call(lst, state.donateDB[tar].stock)){
+            lst[state.donateDB[tar].stock] += state.donateDB[tar].qty;
+          }
+          else{
+            lst[state.donateDB[tar].stock] = state.donateDB[tar].qty;
+          }
+        }
+      }
+      res.push({board : state.board[key].board , stock : lst});
+    }
+    console.log("END... fetcheBoardCurInfo" , res);
+    return res; // state로부터 data를 전달받음
+  },
 }
