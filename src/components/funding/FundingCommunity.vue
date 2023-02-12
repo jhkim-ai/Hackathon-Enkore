@@ -45,7 +45,7 @@ export default {
       'fetchedTest',
       'fetchedTest2',
     ]),
-  }
+  },
 }
 </script>
 
