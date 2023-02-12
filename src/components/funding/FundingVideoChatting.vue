@@ -8,6 +8,10 @@
 
 <script>
 
+// [WebRTC 참고] 
+// 1. https://github.com/SeJonJ/Spring-WebSocket-WebRTC-Chatting/blob/master-Webrtc-jpa/src/main/resources/static/js/rtc/webrtc_client.js
+// 2. https://github.com/Benkoff/WebRTC-SS/blob/master/src/main/resources/static/js/webrtc_client.js
+
 let socket;
 
 // WebRTC variables
