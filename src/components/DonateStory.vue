@@ -5,11 +5,11 @@
             <div kagetype="c360" class="cont_visual" style="background-size: cover; background-color: rgb(59, 56, 32); background-image: url(&quot;https://mud-kage.kakaocdn.net/dn/cJHB5s/btrUlQWFExw/2fvrCRUrFlLsyRyRYdBD60/c360.jpg&quot;);">
                 <div class="front_pack">
                     <span class="tag_group"></span>
-                    <h4 class="tit_visual ellipsis_type1">{{ $route.query.param1 }}</h4>
-                    <span class="txt_sponsor ellipsis_g">{{ $route.query.param2 }}</span>
+                    <h4 class="tit_visual ellipsis_type1">{{this.getCurboad().title}}</h4>
+                    <span class="txt_sponsor ellipsis_g">{{this.getCurboad().foundation}}</span>
                     <fundraising-badges>
                         <div class="badge_group" style="color: #fafafa;">
-                            블라블라 블라리 블라 ~~~ 내용들어가는 칸으로 사용
+                            {{this.getCurboad().note}}
                         </div>
                     </fundraising-badges>
                 </div>
@@ -17,18 +17,18 @@
         </div>
         <div class="wrap_subject" style="height:500px" >
             <div class="info_state">
-                <span class="total_fund">50
+                <span class="total_fund">{{this.getTotStockCnt()}} 
                     <span class="txt_won">주</span>
                 </span>
-                <span class="txt_goal" style="display: block; padding-top: 1px; font-size: 17px;text-align: center;">2000주 목표</span>
+                <span class="txt_goal" style="display: block; padding-top: 1px; font-size: 17px;text-align: center;">{{this.getCurboad().goal}}주 목표</span>
                 <div id="animate-area" class="chart_fund pack_type1">
                     <span class="progress_road" style="box-sizing: content-box">
                         <span class="screen_out">현재 진행상태</span>
                         <span class="mark_pack">
                             <span class="inner_mark_pack">
-                                <span class="mark_point" style="left: 69%;">
+                                <span class="mark_point" v-bind:style= "{ left:this.getPerCentPlus() }">
                                     <span class="ico_chart txt_result">
-                                        <span class="num_per">69</span>
+                                        <span class="num_per">{{this.getPerCent()}} </span>
                                         <span class="txt_per">%</span>
                                     </span>
                                 </span>
@@ -38,25 +38,24 @@
                     <span class="graph_road">
                         <span class="graph_bar">
                             <span class="inner_graph_bar" style="width:100%">
-                                <span class="sign_graph" style="width: 69%;"></span>
+                                <span class="sign_graph" v-bind:style= "{ width:this.getPerCentPlus() }"></span>
                             </span>
                         </span>
                     </span>
                 </div>
                 <strong class="screen_out">기부액 현황</strong>
                 <dl class="detail_fund">
-                    <dt class="tit_fund"> 직접기부 (138명) </dt>
-                    <dd class="txt_fund"> 50주 </dd>
+                    <dt class="tit_fund"> 직접기부 OR 익명기부 </dt>
+                    <dd class="txt_fund"> 기부주식현황  </dd>
                 </dl>
-                <dl class="detail_fund fund_belong">
-                    <dt class="tit_fund"> ㄴ 삼성전자 (30명) </dt>
-                    <dd class="txt_fund"> 40주 </dd>
-                    <dt class="tit_fund"> ㄴ 현대자동차 (1명) </dt>
-                    <dd class="txt_fund"> 2주 </dd>
-                    <dt class="tit_fund"> ㄴ 기아차 (1명) </dt>
-                    <dd class="txt_fund"> 1주 </dd>
-                    <dt class="tit_fund"> ㄴ 삼성SDS (1명) </dt>
-                    <dd class="txt_fund"> 2주 </dd>
+                <dl v-for="item in fetcheBoardCurInfo" :key="item.board" class="detail_fund fund_belong">
+                    <div v-if = "item.board == $route.query.param1">
+                        <div v-for= "( a , b ) in item.stock" :key="a">
+                            <dt  class="tit_fund"> ㄴ {{b}} </dt>
+                            <dd class="txt_fund"> {{a}}주 </dd>
+                        </div>
+                    </div>
+                    
                 </dl>
                 <dl class="detail_fund"></dl>
             </div>
@@ -65,6 +64,55 @@
     </div>
 </div>
 </template>
+
+<script>
+
+import{ mapGetters } from 'vuex';
+
+export default{
+    name: 'DonateStory',
+    data: () => {
+        return {
+            
+        };
+    },
+    computed: {
+        ...mapGetters([
+            'fetchedDonateCount','fetcheBoardCurInfo','fetcheBoard'
+        ]),
+    },
+    methods : {
+        getCurboad(){
+            var getData = this.fetcheBoard
+            for(var el in getData){
+                if(getData[el].board==this.$route.query.param1){
+                    return getData[el]
+                } 
+            }
+            return "NULL"
+        },
+        getTotStockCnt(){
+            var subSum=0;
+            var subData = this.fetcheBoardCurInfo
+            for(var al in subData){
+                if(subData[al].board==this.$route.query.param1){
+                    for(var a in subData[al].stock){subSum += subData[al].stock[a];}
+                    return subSum;
+                } 
+            }
+            return subSum;
+            
+        },
+        getPerCent(){
+            return this.getTotStockCnt()/this.getCurboad().goal*100;
+        },
+        getPerCentPlus(){
+            return this.getPerCent() + "%";
+        }
+    }
+}
+
+</script>
 
 <style scoped>
 .outer-line {

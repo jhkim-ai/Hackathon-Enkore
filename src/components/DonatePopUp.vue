@@ -114,7 +114,7 @@ export default {
             var time = new Date();
             var row = {
                 seq : (this.fetchedDonateCount+1),
-                board: "1",
+                board: 1,
                 user: "ID임시발급#4656",
                 stock: this.curStock,
                 qty: this.curStockCnt,

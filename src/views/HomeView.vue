@@ -28,11 +28,13 @@ export default {
   },
   mounted(){
     console.log("... LOAD INIT DATA ... ");
-    this.init();
+    this.initD();
+    this.initB();
   },
   methods:{
         ...mapActions({
-            init: 'INIT_DONATEDB' // this.init()을 this.$store.dispatch('dbInit')에 매핑
+            initD: 'INIT_DONATEDB',
+            initB: 'INIT_BOARDDB' // this.init()을 this.$store.dispatch('dbInit')에 매핑
         }),
     }
 }
