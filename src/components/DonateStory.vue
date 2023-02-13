@@ -18,10 +18,10 @@
         </div>
         <div class="wrap_subject" style="height:500px" >
             <div class="info_state">
-                <span class="total_fund">{{this.getTotStockCnt()}} 
+                <span class="total_fund" style=" color: #EC6D1E ">{{this.getTotStockCnt()}} 
                     <span class="txt_won">주</span>
                 </span>
-                <span class="txt_goal" style="display: block; padding-top: 1px; font-size: 17px;text-align: center;">{{this.getCurboad().goal}}주 목표</span>
+                <span class="txt_goal" style="display: block; padding-top: 1px; font-size: 17px;text-align: center ; color: #EC6D1E ;">{{this.getCurboad().goal}}주 목표</span>
                 <div id="animate-area" class="chart_fund pack_type1">
                     <span class="progress_road" style="box-sizing: content-box">
                         <span class="screen_out">현재 진행상태</span>

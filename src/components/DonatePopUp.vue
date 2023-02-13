@@ -1,7 +1,7 @@
 <template>
     <div>
         <div tabindex="0" role="dialog" class="ngdialog-content" id="modalON"
-            style="position: fixed; display: block; top: 15%; margin-left: -196px;">
+            style="position: fixed; display: block; top: 5%; margin-left: -196px;">
             <modal-content>
                 <div class="inner_together_layer inner_together_layer6">
                     <div class="layer_head"><strong class="screen_out">기부하기</strong></div>
@@ -142,8 +142,9 @@
                                         </span>
                                     </div>
                                 </div>
-                                <div class="wrap_btn wrap_btn_type"><button type="button" freezebutton=""
-                                        class="btn_set btn_type1" @click="subDonate"> 기부하기 </button></div>
+                                <div class="wrap_btn wrap_btn_type">
+                                    <button type="button" freezebutton="" class="btn_set btn_type1" style=" background-color: #EC6D1E " @click="subDonate"> 기부하기 </button>
+                                </div>
                             </fieldset>
                         </form>
                     </div>

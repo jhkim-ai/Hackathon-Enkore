@@ -106,7 +106,7 @@
         <div class="order_divider mt-3 mb-4">
         </div>
         <article id="mArticle">
-        <div data-tiara-layer="sign sign_button" changeclassbyoffset="" fixedreachedelementid="wrapbutton" fixeddirection="bottom" fixedclass="btn_static" class="fund_float btn_static" style="display: contents">
+        <!--div data-tiara-layer="sign sign_button" changeclassbyoffset="" fixedreachedelementid="wrapbutton" fixeddirection="bottom" fixedclass="btn_static" class="fund_float btn_static" style="display: contents">
             <button type="button" class="btn_g btn_cheer">
                 <span class="ico_together ico_cheer"></span>
                 <span class="txt_float txt_cheer">응원<span class="screen_out">하기</span>
@@ -127,7 +127,26 @@
                         <span class="txt_float txt_give">기부하기</span>
                     </span>
                 </span>
-            </button></div>
+            </button>
+          </div-->
+
+            <div class="order_btn_group">
+              <button>
+                <div class="button_icon_area">
+                  <div class="mdi mdi-heart-outline button_icon_img"></div>
+                  <div class="button_icon_info">1,234</div>
+                </div>
+              </button>
+              <button>
+                <div class="button_icon_area">
+                  <div class="mdi mdi-export-variant button_icon_img"></div>
+                  <div class="button_icon_info">1,234</div>
+                </div>
+              </button>
+              <button  class="button_submit_area" @click="donate">
+                <div class="button_submit_info"><b>기부하기</b></div>
+              </button>
+            </div>
         </article>
       </div>
     </div>
