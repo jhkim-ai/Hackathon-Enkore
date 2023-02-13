@@ -68,9 +68,9 @@
                             <div class="box_select">
                                 <div class="area_name">
                                 <div class="link_myprofile">
-                                    <strong class="txt_nick">해커톤2조계정</strong>
+                                    <strong class="txt_nick">gom626</strong>
                                     <div class="box_name">
-                                        <strong class="txt_name"> ID-~~~ </strong>
+                                        <strong class="txt_name"> 효도박사 </strong>
                                     </div>
                                 </div>
                             </div>
@@ -89,9 +89,28 @@
                             </div>
                         </div>
                         <div>
-                            총기부금액 ~~ 한정 
+                            <div class="Reward_innerContent__3J75P">
+                                <div class="Reward_subInfoContainer__UaprA">
+                                    <div class="Reward_divider__1vIOJ"></div>
+                                    <div class="Reward_subInfo__39LWw">
+                                        <strong>총 기부내역 : &nbsp;&nbsp;&nbsp;</strong>
+                                        <strong class="Reward_infoValue__1k-IM">100 주</strong>
+                                    </div>
+                                    <div class="Reward_divider__1vIOJ"></div>
+                                    <div class="Reward_subInfo__39LWw">
+                                        <strong>기부내역(금액환산) : &nbsp;&nbsp;&nbsp;</strong>
+                                        <strong class="Reward_infoValue__1k-IM">15,000 원</strong>
+                                    </div>
+                                    <div class="Reward_divider__1vIOJ"></div>
+                                    <div class="Reward_subInfo__39LWw">
+                                        <strong>세액공제 : &nbsp;&nbsp;&nbsp;</strong>
+                                        <strong class="Reward_infoValue__1k-IM">2000 원</strong>
+                                    </div>
+                                </div>
+                                <br>
+                                (*1천만원까지 공제율 20% 적용, 나머지 ~)
+                            </div>
                         </div>
-                            {{fetchedDonate}}
                     </div>
                 </div>
             </div>
