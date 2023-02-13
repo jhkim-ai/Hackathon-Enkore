@@ -38,6 +38,11 @@ export default {
                     icon: 'mdi-hand-heart',
                     to: '/myPageDonate'
                 },
+                {
+                    title: '프로젝트 생성내역',
+                    icon: 'mdi-file-document-check',
+                    to: '/myPageProject'
+                },
             ]
         }
     },
