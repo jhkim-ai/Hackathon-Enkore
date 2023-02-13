@@ -312,6 +312,61 @@ export default {
             agree: false,
             disagree: true,
           },
+          {
+            opinion: '제52기 정기주주총회 회의 목적사항 결정의 건',
+            agree: false,
+            disagree: true,
+          },
+          {
+            opinion: '2021년 사회공헌 매칭기금 운영계획 승인의 건',
+            agree: true,
+            disagree: false,
+          },
+          {
+            opinion: '삼성 준법감시위원회 설치 및 운영에 관한 협약 및 규정 개정의 건',
+            agree: false,
+            disagree: true,
+          },
+          {
+            opinion: '학교법인 충남삼성학원 기부금 출연의 건',
+            agree: true,
+            disagree: false,
+          },
+          {
+            opinion: '삼성바이오로직스㈜, 삼성바이오에피스㈜ 삼성 CI 상표 사용 계약 체결의 건',
+            agree: false,
+            disagree: true,
+          },
+          {
+            opinion: '제52기 정기주주총회 소집결정의 건',
+            agree: true,
+            disagree: false,
+          },
+          {
+            opinion: '제52기 정기주주총회 회의 목적사항 결정의 건',
+            agree: false,
+            disagree: true,
+          },
+          {
+            opinion: '2021년 사회공헌 매칭기금 운영계획 승인의 건',
+            agree: true,
+            disagree: false,
+          },
+          {
+            opinion: '삼성 준법감시위원회 설치 및 운영에 관한 협약 및 규정 개정의 건',
+            agree: false,
+            disagree: true,
+          },
+          {
+            opinion: '학교법인 충남삼성학원 기부금 출연의 건',
+            agree: true,
+            disagree: false,
+          },
+          {
+            opinion: '삼성바이오로직스㈜, 삼성바이오에피스㈜ 삼성 CI 상표 사용 계약 체결의 건',
+            agree: false,
+            disagree: true,
+          },
  
         ],
         headers: [
