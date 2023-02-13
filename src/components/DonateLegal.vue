@@ -91,3 +91,9 @@
     </div>
 </div>
 </template>
+
+<style scoped>
+.FundingRefundContent_explanation__215qf strong{
+    color: #EC6D1E;
+}
+</style>
