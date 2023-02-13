@@ -1,8 +1,9 @@
 <template>
 <div>
     <div class="outer-line">
+        
         <div data-tiara-layer="top_summary" class="wrap_visual">
-            <div kagetype="c360" class="cont_visual" style="background-size: cover; background-color: rgb(59, 56, 32); background-image: url(&quot;https://mud-kage.kakaocdn.net/dn/cJHB5s/btrUlQWFExw/2fvrCRUrFlLsyRyRYdBD60/c360.jpg&quot;);">
+            <div kagetype="c360" class="cont_visual" v-bind:style= "{ 'background-size': 'cover' , 'background-color': 'rgb(59, 56, 32)', 'background-image': 'url(' + getCurboad().pic + ')'}">
                 <div class="front_pack">
                     <span class="tag_group"></span>
                     <h4 class="tit_visual ellipsis_type1">{{this.getCurboad().title}}</h4>
