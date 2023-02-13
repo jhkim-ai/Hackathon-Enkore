@@ -1,54 +1,62 @@
 <template>
-  <div>
-    <h1>Vuex(API, Store) 파일별 용도 </h1>
-    <p>
-      1. /src/api/index.js 에서 API 호출 함수 정의 <br>
-      2. /src/store/index.js 에서 state 안에 필요한 변수 정의 <br>
-      3. /src/store/actions.js 에서 /src/api/index.js 의 API 함수를 호출한 후 data를 정제하여 mutations으로 전달 <br>
-      4. /src/store/mutations.js 에서 data를 state의 변수에 binding <br> 
-      5. data를 사용할 vue 페이지에서 /src/store/getters.js 를 이용하여 store에 저장된 data를 호출 <br>
-    </p>
-    <p> ** 참고1 (sample: Spring 서버 사용) ** </p>
-		<div v-for="item in fetchedTest2" :key="item.userName">
-      userId: {{item.userId}} <br>
-      userName: {{item.userName}} <br>
-      userStat: {{item.userStat}} <br>
-      <hr>
-    </div>
-    <br>
-    <p> ** 참고2 (sample: vuex 사용) ** </p>
-		<div v-for="(item, idx) in fetchedTest" :key="idx">
-      id: {{item.id}} <br>
-      title: {{item.title}} <br>
-      points: {{item.points}} <br>
-      <hr>
-    </div>
-  </div>
+<div>
+    <comments>
+        <div data-tiara-layer="comment" class="wrap_cmt cmt_type3"><strong class="screen_out">댓글</strong>
+            <div class="wrap_info">
+                <div class="inner_info"><span class="txt_cmt">댓글 <span class="emph_sign">{{this.fetchedDonateCount}}</span></span><strong class="screen_out">분류보기 선택</strong>
+                </div>
+            </div>
+            <ul class="list_cmt">
+                <comment v-for="item in fetchedDonate" :key="item.seq">
+                    <li id="213">
+                        <button type="button" data-tiara-layer="profile_image" data-tiara-action-name="프로필_클릭" class="link_profile">
+                            <img profileimagecheck="" class="img_thumb" src="https://t1.kakaocdn.net/together_image/common/avatar/avatar05.png" alt="익명의 회원입니다">
+                        </button>
+                        <div class="cmt_info">
+                            <span class="info_append">
+                                <strong class="tit_nickname">
+                                    <a href="javascript:;" class="link_nickname">
+                                        <span class="screen_out">ID :</span> {{item.user}}
+                                    </a>
+                                </strong>
+                                <span class="txt_money">
+                                    <span class="screen_out">기부주식</span> {{item.stock}} &nbsp; {{item.qty}}주</span>
+                                </span>
+                                <span class="txt_cmt">
+                                    <span class="desc_cmt">{{item.comment}}</span>
+                                    <span class="emoticon_pack"></span>
+                                </span>
+                                <span class="info_append"><span class="txt_time">{{item.time}}</span>
+                                <like-comment>
+                                    <button type="button" data-tiara-layer="comment heart" data-tiara-action-kind="Like" data-tiara-action-name="좋아요_클릭" freezebutton="" class="btn_like" data-tiara-id="14067272" data-tiara-custom="liketype=like">
+                                        <span class="ico_together ico_like"></span>&nbsp;좋아요&nbsp;
+                                    </button>
+                                </like-comment>
+                            </span>
+                        </div>
+                    </li>
+                </comment>
+            </ul>
+        </div>
+    </comments>
+</div>
 </template>
 
 <script>
 
-import { mapGetters } from 'vuex';
+import { mapGetters } from "vuex";
 
 export default {
-  data() {
-    return {
-
+    name: "DonateCommu",
+    computed: {
+        ...mapGetters([
+            'fetchedDonate','fetchedDonateCount'
+        ]),
+    },
+    methods:{
+        getDate(date){
+            return date.slice(0,4) + "." + date.slice(4,6) + "." + date.slice(6,8);
+        }
     }
-  },
-  created() {
-		this.$store.dispatch('FETCH_TEST');
-    this.$store.dispatch('FETCH_TEST2');
-  },
-  computed: {
-    ...mapGetters([
-      'fetchedTest',
-      'fetchedTest2',
-    ]),
-  },
 }
 </script>
-
-<style>
-
-</style>
