@@ -1,8 +1,8 @@
 <template>
   <div>
     <div class="service_title">
-      <h4>category</h4>
-      <i class="fas fa-gift funding_menu">&nbsp; Main 메뉴명(의결권펀딩)</i>
+      <h4>이사선임</h4>
+      <i class="fas fa-gift funding_menu">&nbsp; 의결권펀딩</i>
       <div class="funding_title"><b>[삼성전자] 청렴결백 대표자</b></div>
       <div class="funding_sub_title">
         여러분들이 주신 한표 한표 힘받아 투명한 주주총회가 될 수 있도록 보여드리겠습니다.
@@ -17,7 +17,7 @@
       </div>
       <div class="total_amount_area">
         <span class="total_amount">12,662,530</span>
-        <span class="total_amount_won"> 원</span>
+        <span class="total_amount_won"> 주</span>
         <v-chip class="info_chip" small color="#F5F5F5" text-color="#424242">
           <b>{{ member }}명 참여</b>
         </v-chip>
@@ -59,7 +59,7 @@
                   <template v-slot:default="dialog">
                     <v-card>
                       <v-toolbar
-                        color="#FF6D00"
+                        color="orange"
                       >화상채팅</v-toolbar>
                       <v-card-text>
                         <div class="text-h2 pa-12">
@@ -164,7 +164,7 @@
               의결권 위임하기
             </v-toolbar>
             <v-card-text style="height: 500px;">
-              <span class="dialog_sub_title"> 개인정보입력 </span> <small class="ml-1" style="font-size: 5px; color: #FFE0B2"> *필수항목</small>
+              <span class="dialog_sub_title"> 개인정보입력 </span> <small class="ml-1" style="font-size: 5px; color: #cc0000"> *필수항목</small>
               <v-container>
                 <v-row>
                   <v-col cols="12" sm="6" md="4" class="dialog_input_component_first">
@@ -259,9 +259,9 @@
                   <div>
                     <table class="opnioins_table">
                       <tr>
-                        <td style="width: 80%; text-align: center;">안건</td>
-                        <td style="width: 10%; text-align: center;">찬성</td>
-                        <td style="width: 10%; text-align: center;">반대</td>
+                        <td style="width: 80%; text-align: center; font-weight: bolder;">안건</td>
+                        <td style="width: 10%; text-align: center; font-weight: bolder;">찬성</td>
+                        <td style="width: 10%; text-align: center; font-weight: bolder;">반대</td>
                       </tr>
                       <tr v-for="(item, opinionKey) in opinions" :key=opinionKey>
                         <td style="width: 80%; text-align: left; padding-left: 10px;">{{opinionKey+1}}. {{item.opinion}}</td>
@@ -527,7 +527,7 @@ export default {
   border: 1px solid #FFE0B2;
 }
 .opnioins_table td {
-  border: 5px solid #FFE0B2;
+  border: 3px solid #FFE0B2;
 }
 .dialog_input_component_first {
   margin: -10px 0 0 0;

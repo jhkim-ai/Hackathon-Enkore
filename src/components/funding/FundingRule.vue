@@ -6,13 +6,13 @@
         </div>
         <div>
             <dl class="FundingRefundContent_explanation__215qf">
-                <dt class="FundingRefundContent_endDate__2Kv0F">펀딩 종료일 <strong style="color: orange">2023-01-31</strong> 까지</dt>
+                <dt class="FundingRefundContent_endDate__2Kv0F">펀딩 종료일 <strong style="color: #FF6D00">2023-01-31</strong> 까지</dt>
                 <dd>
                     <p>&nbsp;· 배송지 변경 가능</p>
                     <p>&nbsp;· 리워드 옵션 변경 가능</p>
                     <p>&nbsp;· 결제 예약 취소 가능</p>
                 </dd>
-                <dt class="FundingRefundContent_dueDate__h4urU">결제 예정일 <strong style="color: orange">2023.02.01 17시</strong> 까지</dt>
+                <dt class="FundingRefundContent_dueDate__h4urU">결제 예정일 <strong style="color: #FF6D00">2023.02.01 17시</strong> 까지</dt>
                 <dd>
                     <p>&nbsp;· 결제 정보 변경 가능</p>
                 </dd>
@@ -23,7 +23,7 @@
                     <div class="column">
                         <h3 class="title">프로젝트에 대해 문의사항이 있나요?</h3>
                     </div>
-                    <div class="column"><a href="/web/board/personalMessage/chatSpace?projectType=R&amp;projectId=170979" class="wz block button"><i class="icon chat-o"></i> 메이커에게 문의하기</a></div>
+                    <div class="column"><a style="color: #FF6D00" href="/web/board/personalMessage/chatSpace?projectType=R&amp;projectId=170979" class="wz block button"><i class="icon chat-o"></i> 메이커에게 문의하기</a></div>
                 </div>
             </div>
         </div>
@@ -31,9 +31,9 @@
             <div class="content">
                 <p class="title-header">프로젝트 스토리에서 소개한 내용과 실제 리워드가 다르거나 다른 제품/콘텐츠를 모방하는 지적재산권 침해와 같은 문제가 있을 때, 혹은 메이커가 약속한 배송일에 펀딩한 리워드를 받지 못했을 때, 펀딩금 반환을 신청할 수 있어요.</p>
                 <h3 class="title">펀딩금 반환 안내</h3>
-                <p class="title-desc">펀딩 종료 후, 펀딩금 반환 문의처에서 펀딩금 반환 신청을 할 수 있습니다.<br>펀딩금 반환은 아래 정책에 따라 확인 절차를 거쳐 진행되며, 반환은 펀딩한 결제 건을 취소하는 방식으로 진행됩니다.<a href="https://pf.kakao.com/_qFVVxb#none" target="_blank" style="display: block;">펀딩금 반환 문의처 &gt; </a></p>
+                <p class="title-desc">펀딩 종료 후, 펀딩금 반환 문의처에서 펀딩금 반환 신청을 할 수 있습니다.<br>펀딩금 반환은 아래 정책에 따라 확인 절차를 거쳐 진행되며, 반환은 펀딩한 결제 건을 취소하는 방식으로 진행됩니다.<a href="https://pf.kakao.com/_qFVVxb#none" target="_blank" style="display: block; color: #FF6D00">펀딩금 반환 문의처 &gt; </a></p>
                 <h4>1) 리워드가 지연될 경우</h4>
-                <p class="desc"><strong>메이커가 리워드 발송 시작 예정일까지 리워드를 발송하지 않을 경우, </strong>서포터는 펀딩금 반환 신청을 할 수 있습니다.<br>리워드 별 발송 시작 예정일은 다를 수 있으니, <a href="/web/wmypage/myfunding/rewardfundinglist" target="_blank" style="text-decoration: underline;">나의 펀딩 - 펀딩 내역</a>에서 펀딩한 리워드의 발송 시작 예정일을 확인하세요.<br><br></p>
+                <p class="desc"><strong>메이커가 리워드 발송 시작 예정일까지 리워드를 발송하지 않을 경우, </strong>서포터는 펀딩금 반환 신청을 할 수 있습니다.<br>리워드 별 발송 시작 예정일은 다를 수 있으니, <a href="/web/wmypage/myfunding/rewardfundinglist" target="_blank" style="text-decoration: underline; color: #FF6D00">나의 펀딩 - 펀딩 내역</a>에서 펀딩한 리워드의 발송 시작 예정일을 확인하세요.<br><br></p>
                 <h4>2) 리워드에 하자가 있을 경우</h4>
                 <p class="desc"><strong>서포터가 수령한 리워드가 아래 하자 기준에 해당할 경우,</strong>&nbsp; 배송 완료일로부터 14일 이내에 펀딩금 반환 신청을 할 수 있습니다. 이때 메이커는 하자 판단을 위한 증빙자료, 리워드 반송을 서포터에게 요청할 수 있습니다.</p>
                 <div class="refundProblemList">
@@ -64,7 +64,7 @@
                                 <li>용기 불량, 파손 등으로 인한 상해, 피해사고를 입은 경우</li>
                             </ul>
                         </li>
-                        <li>자세한 하자 반환 기준은&nbsp;<a href="/web/wterms/funding_refund#3-%ED%8E%80%EB%94%A9%EA%B8%88-%EB%B0%98%ED%99%98-%EA%B8%B0%EC%A4%80" target="_blank" rel="nofollow noopener noreferrer" class="link">펀딩금 반환 정책</a>을 확인하세요.</li>
+                        <li>자세한 하자 반환 기준은&nbsp;<a href="/web/wterms/funding_refund#3-%ED%8E%80%EB%94%A9%EA%B8%88-%EB%B0%98%ED%99%98-%EA%B8%B0%EC%A4%80" target="_blank" rel="nofollow noopener noreferrer" class="link" style="color: #FF6D00">펀딩금 반환 정책</a>을 확인하세요.</li>
                     </ul>
                 </div>
                 <div class="indent-box">
@@ -83,7 +83,7 @@
                     <li>하자가 있는 경우, 리워드 반송을 위한 배송비는 메이커가 부담하여야 하고 하자가 없는 경우에는 리워드 반송 및 재반송에 대한 배송비를 서포터에게 청구될 수 있습니다.</li>
                 </ul>
                 <div class="moreInfo" style="margin-bottom: 20px">※ 더 자세한 사항은&nbsp;
-                    <a href="/web/wterms/funding_refund" target="_blank" rel="nofollow noopener noreferrer" class="link">펀딩금 반환 정책</a>에서 확인하세요.
+                    <a href="/web/wterms/funding_refund" target="_blank" rel="nofollow noopener noreferrer" class="link" style="color: #FF6D00">펀딩금 반환 정책</a>에서 확인하세요.
                 </div>
                 <hr>
             </div>
@@ -91,3 +91,8 @@
     </div>
 </div>
 </template>
+<script>
+
+</script>
+<style scoped>
+</style>
