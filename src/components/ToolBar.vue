@@ -17,7 +17,8 @@
       <!--민주수정(시작)-->
       <router-link to="/projectmake">
       <v-btn
-        class="ma-2 cyan darken-2 white--text"
+        class="ma-2 white--text"
+        color="#EC6D1E"
       >
       프로젝트 생성하기
       </v-btn>
@@ -40,7 +41,7 @@ export default {
 <style scoped>
   .toolbar {
     display: flex;
-    background-color: #373a3c;
+    background-color: #5A5657;
     height: 80px;
     align-items: center;
   }
@@ -52,7 +53,7 @@ export default {
     margin: 0px 30px;
   }
   .toolbar-home-link a {
-    color: #0097A7;
+    color: #EC6D1E;
     text-decoration: none;
   }
   .toolbar-menu-link a {

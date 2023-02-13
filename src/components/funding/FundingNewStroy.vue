@@ -3,7 +3,7 @@
     <div class="News_left__B0t9L">
         <div class="RewardNewsList_rewardNewsListContainer__1fKjZ">
             <div class="NewsListHeader_newsListHeaderContainer__33FAb">
-                <div><span class="NewsListHeader_newsListTitleContainer__2TVX3"><span class="NewsListHeader_title__30zaW">새소식</span><span class="NewsListHeader_count__uE-y_" style="color: orange">3</span></span><span class="NewsListHeader_newsListSelectContainer__3ua9-"><label class="SelectBoxLabel_selectBoxLabelContainer__Ynbe4"><select class="NewsListHeader_newsListSelectBox__2soJi NewsListHeader_option__pA7-r">
+                <div><span class="NewsListHeader_newsListTitleContainer__2TVX3"><span class="NewsListHeader_title__30zaW">새소식</span><span class="NewsListHeader_count__uE-y_" style="color: #FF6D00">3</span></span><span class="NewsListHeader_newsListSelectContainer__3ua9-"><label class="SelectBoxLabel_selectBoxLabelContainer__Ynbe4"><select class="NewsListHeader_newsListSelectBox__2soJi NewsListHeader_option__pA7-r">
                                 <option class="NewsListHeader_newsListOption__2IgWD" value="">전체</option>
                                 <option class="NewsListHeader_newsListOption__2IgWD" value="F">FAQ</option>
                                 <option class="NewsListHeader_newsListOption__2IgWD" value="P">결제</option>
@@ -21,7 +21,7 @@
             </div><a href="/web/campaign/detailPost/168921/news/296369" style="text-decoration: none;">
                 <div class="NewsList_newsListContainer__3RSEH">
                     <p><span class="NewsList_newsListHead__3kesO">리워드 안내</span></p>
-                    <p class="NewsList_newsListText__1RIVZ">🔔오늘 자정에 프로젝트가 종료 됩니다🔔<span class="wz badge NewsList_newsListBadge__2WA-c" style="background: orange">N</span></p>
+                    <p class="NewsList_newsListText__1RIVZ">🔔오늘 자정에 프로젝트가 종료 됩니다🔔<span class="wz badge NewsList_newsListBadge__2WA-c" style="background: #FF6D00">N</span></p>
                     <p class="NewsList_newsListDate__3iDLO">6시간 전</p>
                 </div>
             </a><a href="/web/campaign/detailPost/168921/news/292437" style="text-decoration: none;">
