@@ -956,12 +956,8 @@ SM의 주가는 지난 1년간 6~7만원을 횡보하며 주주에게 큰 실망
 
                     <div class="custom-style-1"></div>
                     <v-row align="center" justify="space-around">
-                        <a href="/fund">
-                        <v-btn>의결권 펀딩 바로가기</v-btn>
-                        </a>
-                        <a href="/donate">
-                        <v-btn>배당금 기부 바로가기</v-btn>
-                        </a>
+                        <v-btn to="/fund">의결권 펀딩 바로가기</v-btn>
+                        <v-btn to="/donate">배당금 기부 바로가기</v-btn>
                     </v-row>
                 </div>
             </v-container>
