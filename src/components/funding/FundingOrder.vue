@@ -164,7 +164,7 @@
               의결권 위임하기
             </v-toolbar>
             <v-card-text style="height: 500px;">
-              <span class="dialog_sub_title"> 개인정보입력 </span> <small class="ml-1" style="font-size: 5px; color: #FFE0B2"> *필수항목</small>
+              <span class="dialog_sub_title"> 개인정보입력 </span> <small class="ml-1" style="font-size: 5px; color: #cc0000"> *필수항목</small>
               <v-container>
                 <v-row>
                   <v-col cols="12" sm="6" md="4" class="dialog_input_component_first">
@@ -259,9 +259,9 @@
                   <div>
                     <table class="opnioins_table">
                       <tr>
-                        <td style="width: 80%; text-align: center;">안건</td>
-                        <td style="width: 10%; text-align: center;">찬성</td>
-                        <td style="width: 10%; text-align: center;">반대</td>
+                        <td style="width: 80%; text-align: center; font-weight: bolder;">안건</td>
+                        <td style="width: 10%; text-align: center; font-weight: bolder;">찬성</td>
+                        <td style="width: 10%; text-align: center; font-weight: bolder;">반대</td>
                       </tr>
                       <tr v-for="(item, opinionKey) in opinions" :key=opinionKey>
                         <td style="width: 80%; text-align: left; padding-left: 10px;">{{opinionKey+1}}. {{item.opinion}}</td>
@@ -527,7 +527,7 @@ export default {
   border: 1px solid #FFE0B2;
 }
 .opnioins_table td {
-  border: 5px solid #FFE0B2;
+  border: 3px solid #FFE0B2;
 }
 .dialog_input_component_first {
   margin: -10px 0 0 0;

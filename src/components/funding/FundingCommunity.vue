@@ -3,7 +3,7 @@
     <comments>
         <div data-tiara-layer="comment" class="wrap_cmt cmt_type3"><strong class="screen_out">댓글</strong>
             <div class="wrap_info">
-                <div class="inner_info"><span class="txt_cmt">댓글 <span class="emph_sign">{{this.fetchedDonateCount}}</span></span><strong class="screen_out">분류보기 선택</strong>
+                <div class="inner_info"><span class="txt_cmt">댓글 <span class="emph_sign" style="color: #FF6D00">{{this.fetchedDonateCount}}</span></span><strong class="screen_out">분류보기 선택</strong>
                 </div>
             </div>
             <ul class="list_cmt">
