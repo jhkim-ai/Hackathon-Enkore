@@ -7,22 +7,21 @@
     </div>
     <div class="service_title">
         <h4>category</h4>
-        <i class="fas fa-gift funding_menu">&nbsp; Main 메뉴명(의결권펀딩)</i>
-        <div class="funding_title"><b>[삼성전자] 청렴결백 대표자</b></div>
+        <i class="fas fa-gift funding_menu">&nbsp; Main 메뉴명(배당금 기부하기)</i>
+        <div class="funding_title"><b>{{this.getCurboad().title}}</b></div>
         <div class="funding_sub_title">
-          여러분들이 주신 한표 한표 힘받아 투명한 주주총회가 될 수 있도록 보여드리겠습니다.
-          이번 주주총회에서 새로운 이사/감사를 통해 New 삼성에 박차를 가하는 삼성전자가 되도록 힘을 쏟겠습니다.
+          {{this.getCurboad().note}}
         </div>
         <div class="achievement_area">
-          <span class="achievement_rate">2,530</span>
-          <span class="achievement_success_info">% 달성</span>
+          <span class="achievement_rate">{{this.searchDonate(getCurboad())}}</span>
+          <span class="achievement_success_info"> 달성</span>
           <v-chip class="info_chip" small color="#FFE0B2" text-color="#FF6D00">
             <b>오늘 자정 마감</b>
           </v-chip>
         </div>
         <div class="total_amount_area">
-          <span class="total_amount">12,662,530</span>
-          <span class="total_amount_won"> 원</span>
+          <span class="total_amount">{{ this.getCurboad().goal }}</span>
+          <span class="total_amount_won"> 주</span>
           <v-chip class="info_chip" small color="#F5F5F5" text-color="#424242">
             <b>{{ member }}명 참여</b>
           </v-chip>
@@ -40,16 +39,16 @@
                 color="grey"
               >
                 <img
-                  src="https://cdn.vuetifyjs.com/images/john.jpg"
-                  alt="John"
+                  src=https://www.youcan.or.kr/img_up/shop_pds/yc11782/build/option/t_logo1500270956.png
+                  alt="더불어사단법인"
                 >
               </v-list-item-avatar>
               <v-list-item-content>
                 <div class="text-overline">
-                  <b>법무법인 김앤장</b>
-                  <button class="webcam_chatting_btn mr-3">
+                  <b>{{getCurboad().foundation}}</b>
+                  <!--button class="webcam_chatting_btn mr-3">
                     <div class="webcam_chatting_info">화상채팅하기</div>
-                  </button>
+                  </button-->
                 </div>
                 <v-list-item-title class="text-h9 mb-1">
                   홍길동 <span style="font-size: 8px">변호사</span>
@@ -84,17 +83,20 @@
                 </v-list-item-subtitle>
               </v-list-item-content>
             </v-list-item>
-  
             <v-divider class="mb-2"></v-divider>
-  
             <div class="ml-4 mr-4 mb-2">
               <table class="user_info_table">
-                <tr
-                  v-for="item in userInfo"
-                  :key="item.name"
-                >
-                  <td style="color: #adb5bd;">{{ item.key }}</td>
-                  <td style="color: #495057;">{{ item.value }}</td>
+                <tr>
+                  <td style="color: #adb5bd;">사업자등록번호</td>
+                  <td style="color: #495057;">{{ this.getCurboad().bizno }}</td>
+                </tr>
+                <tr>
+                  <td style="color: #adb5bd;">연락처</td>
+                  <td style="color: #495057;">{{ this.getCurboad().tno }}</td>
+                </tr>
+                <tr>
+                  <td style="color: #adb5bd;">주소</td>
+                  <td style="color: #495057;">{{ this.getCurboad().address }}</td>
                 </tr>
               </table>
             </div>
@@ -103,26 +105,6 @@
   
         <div class="order_divider mt-3 mb-4">
         </div>
-        
-        <!--div class="order_btn_group">
-          <button>
-            <div class="button_icon_area">
-              <div class="mdi mdi-heart-outline button_icon_img"></div>
-              <div class="button_icon_info">1,234</div>
-            </div>
-          </button>
-          <button>
-            <div class="button_icon_area">
-              <div class="mdi mdi-export-variant button_icon_img"></div>
-              <div class="button_icon_info">1,234</div>
-            </div>
-          </button>
-          <button class="button_submit_area">
-            <div class="button_submit_info">
-                <b>펀딩하기</b>
-            </div>
-          </button>
-        </div-->
         <article id="mArticle">
         <div data-tiara-layer="sign sign_button" changeclassbyoffset="" fixedreachedelementid="wrapbutton" fixeddirection="bottom" fixedclass="btn_static" class="fund_float btn_static" style="display: contents">
             <button type="button" class="btn_g btn_cheer">
@@ -153,9 +135,10 @@
 
 <script>
 import DonatePopUp from './DonatePopUp.vue';
+import{ mapGetters } from 'vuex';
 
 export default {
-    name: "app",
+    name: "DonateNext",
     data: () => {
         return {
             is_show: false,
@@ -176,12 +159,37 @@ export default {
             ],
         };
     },
+    computed: {
+        ...mapGetters([
+            'fetcheBoard','fetcheBoardCurInfo'
+        ]),
+    },
     methods: {
         donate: function () {
             this.is_show = !this.is_show;
             console.log(this);
             console.log("부모");
         },
+        getCurboad: function(){
+            var getData = this.fetcheBoard
+            for(var el in getData){
+                if(getData[el].board==this.$route.query.param1){
+                    return getData[el]
+                } 
+            }
+            return "NULL"
+        },
+        searchDonate(item){
+          var subSum=0;
+          var subData = this.fetcheBoardCurInfo
+          for(var al in subData){
+          if(subData[al].board===item.board){
+            for(var a in subData[al].stock){subSum += subData[al].stock[a];}
+            return (subSum/item.goal*100) + "%";
+          } 
+        }
+      return subSum;
+    }
     },
     components: { DonatePopUp }
 }

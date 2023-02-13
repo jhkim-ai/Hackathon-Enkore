@@ -42,7 +42,7 @@
                       <span class="screen_out">달성률</span>
                       <span class="txt_per">{{searchDonate(item)}}</span>
                     </span><!---->
-                    <span class="price_goal">{{item.goal}}주 </span>
+                    <span class="price_goal">{{searchDonate(item)}} &nbsp;&nbsp;&nbsp; {{item.goal}}주 </span>
                   </span>
                 </router-link>
           </li>
