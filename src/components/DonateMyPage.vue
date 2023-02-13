@@ -2,7 +2,7 @@
 <div>
     <enkore-my-page></enkore-my-page>
     <div id="mArticle">
-        <div class="donate_cont" style="width:initial">
+        <div class="donate_cont test" style="width:initial">
             <h2 class="screen_out">마이페이지</h2>
             <div class="detail_outer_box">
                 <div class="detail_inner_left_box">
@@ -172,5 +172,9 @@ export default {
 .detail_inner_right_box {
     position: sticky;
     top: 0;
+}
+
+.test {
+    margin: -100px 0 0 0;
 }
 </style>

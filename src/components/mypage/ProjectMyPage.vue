@@ -8,7 +8,7 @@
                 <div class="detail_inner_left_box">
                     <ng-component>
                         <div class="group_donate">
-                            <h3 class="tit_section section_type6">의결권 펀딩 내역</h3>
+                            <h3 class="tit_section section_type6">프로젝트 생성 내역</h3>
                             <div class="area_doselect">
                                 <div class="box_select">
                                     <div class="inner_box">
@@ -33,70 +33,33 @@
                             </div>
 
                             <div class="area_receipt">
-                                <h4 class="tit_area"> 2022년 12월 <span class="emph_num">(1건)</span></h4>
+                                <h4 class="tit_area"> 2023년 02월 <span class="emph_num">(2건)</span></h4>
                                 <div class="box_receipt">
                                     <ul class="list_receipt list_donate">
                                         <li class="item_donate">
-                                            <p class="txt_sumdata"> 2022.12.03 </p>
-                                            <p class="tit_sum"><a data-tiara-layer="title" data-tiara-action-name="모금함_클릭" class="link_sum" href="/fund/detail?param1=1&param2=재단이름">법무법인 김앤장</a></p>
-                                            <div class="donate_numinfo"><strong class="num_sumprice" max-width="500px">[에스엠]감사인 선임 저지로 카리나 구하기</strong>
-                                                <span class="txt_sumprice"> 10주 (익명기부)</span></div>
+                                            <p class="txt_sumdata"> 2023.02.13 </p>
+                                            <p class="tit_sum"><a data-tiara-layer="title" data-tiara-action-name="모금함_클릭" class="link_sum" href="/fund/detail?param1=1&param2=재단이름">배당금기부 프로젝트</a></p>
+                                            <div class="donate_numinfo"><strong class="num_sumprice" max-width="500px">예시 프로젝트 - 배당금 기부</strong>
+                                                <span class="txt_sumprice"> 예시 단체 - 효도박사</span></div>
+                                            <div class="box_link">
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="box_receipt">
+                                    <ul class="list_receipt list_donate">
+                                        <li class="item_donate">
+                                            <p class="txt_sumdata"> 2022.02.14 </p>
+                                            <p class="tit_sum"><a data-tiara-layer="title" data-tiara-action-name="모금함_클릭" class="link_sum" href="/fund/detail?param1=1&param2=재단이름">의결권펀딩 프로젝트</a></p>
+                                            <div class="donate_numinfo"><strong class="num_sumprice" max-width="500px">예시 프로젝트 - 의결권 펀딩</strong>
+                                                <span class="txt_sumprice"> 예시 단체 - 김재현과 아이들</span></div>
                                             <div class="box_link">
                                             </div>
                                         </li>
                                     </ul>
                                 </div>
                             </div>
-
-                            <div class="area_receipt">
-                                <h4 class="tit_area"> 2023년 01월 <span class="emph_num">(1건)</span></h4>
-                                <div class="box_receipt">
-                                    <ul class="list_receipt list_donate">
-                                        <li class="item_donate">
-                                            <p class="txt_sumdata"> 2022.01.25 </p>
-                                            <p class="tit_sum"><a data-tiara-layer="title" data-tiara-action-name="모금함_클릭" class="link_sum" href="/fund/detail?param1=1&param2=재단이름">SK 소액주주 연합</a></p>
-                                            <div class="donate_numinfo"><strong class="num_sumprice" max-width="500px">[SK]최고경영진 교체로 주주의 힘을 보여줍시다</strong>
-                                                <span class="txt_sumprice"> 30주 (익명기부)</span></div>
-                                            <div class="box_link">
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <div class="area_receipt">
-                                <h4 class="tit_area"> 2023년 02월 <span class="emph_num">(1건)</span></h4>
-                                <div class="box_receipt">
-                                    <ul class="list_receipt list_donate">
-                                        <li class="item_donate">
-                                            <p class="txt_sumdata"> 2022.02.01 </p>
-                                            <p class="tit_sum"><a data-tiara-layer="title" data-tiara-action-name="모금함_클릭" class="link_sum" href="/fund/detail?param1=1&param2=재단이름">삼성을 사랑하는 사람들</a></p>
-                                            <div class="donate_numinfo"><strong class="num_sumprice" max-width="500px">[삼성물산]우선주 소각으로 주주 권익 찾기</strong>
-                                                <span class="txt_sumprice"> 5주 (직접기부)</span></div>
-                                            <div class="box_link">
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <div class="area_receipt">
-                                <h4 class="tit_area"> 2023년 02월 <span class="emph_num">(1건)</span></h4>
-                                <div class="box_receipt">
-                                    <ul class="list_receipt list_donate">
-                                        <li class="item_donate">
-                                            <p class="txt_sumdata"> 2022.02.13 </p>
-                                            <p class="tit_sum"><a data-tiara-layer="title" data-tiara-action-name="모금함_클릭" class="link_sum" href="/fund/detail?param1=1&param2=재단이름">전국 인삼인 연합회</a></p>
-                                            <div class="donate_numinfo"><strong class="num_sumprice" max-width="500px">[KT&G]자회사 매각&인삼공사 분할저지</strong>
-                                                <span class="txt_sumprice"> 100주 (직접기부)</span></div>
-                                            <div class="box_link">
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-
-
                             
                         </div>
                         <modal>
@@ -140,8 +103,8 @@
                             </div>
                         </div>
                         <div>
-                            <v-row>총 펀딩참여횟수     : 4 회</v-row>
-                            <v-row>총 펀딩내역         : 145 주</v-row>
+                            <v-row>사용중인 요금제     : STANDARD 요금제</v-row>
+                            <v-row>남은 프로젝트 생성 횟수 : 8 회</v-row>
                         </div>
                     </div>
                 </div>
@@ -158,7 +121,7 @@ import EnkoreMyPage from '@/views/EnkoreMyPage.vue';
 
 
 export default {
-    name: "FundingMyPage",
+    name: "ProjectMyPage",
     components: {
         EnkoreMyPage
     },

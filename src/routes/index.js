@@ -9,6 +9,7 @@ import ProjectMake from '../views/ProjectMakeView.vue';
 import EnkoreMyPage from '../views/EnkoreMyPage.vue';
 import DonateMyPage from '../components/DonateMyPage.vue';
 import FundingMyPage from '../components/mypage/FundingMyPage.vue';
+import ProjectMyPage from '../components/mypage/ProjectMyPage.vue';
 
 Vue.use(VueRouter);
 
@@ -71,6 +72,12 @@ export const router = new VueRouter({
       path: '/projectmake',
       component: ProjectMake,
       name: 'ProjectMake',
+      props: true,
+    },
+    {
+      path: '/myPageProject',
+      component: ProjectMyPage,
+      name: 'ProjectMyPage',
       props: true,
     },
     //민주추가 부분(끝)
