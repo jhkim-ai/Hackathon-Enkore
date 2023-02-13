@@ -1,14 +1,13 @@
 <template>
   <div>
     <v-carousel
-    cycle
-    interval = 2500>
+    :cycle="true"
+    interval="2500">
       <v-carousel-item
         v-for="(item, i) in items"
         :key="i"
         :src="item.src"
-        reverse-transition="fade-transition"
-        transition="fade-transition"
+        fade
       ></v-carousel-item>
     </v-carousel>
   </div>

@@ -6,15 +6,12 @@
         </div>
         <div>
             <dl class="FundingRefundContent_explanation__215qf">
-                <dt class="FundingRefundContent_endDate__2Kv0F">펀딩 종료일 <strong style="color: #FF6D00">2023-01-31</strong> 까지</dt>
+                <dt class="FundingRefundContent_endDate__2Kv0F">펀딩 종료일 <strong style="color: #FF6D00">2023-02-15</strong> 까지</dt>
                 <dd>
-                    <p>&nbsp;· 배송지 변경 가능</p>
-                    <p>&nbsp;· 리워드 옵션 변경 가능</p>
-                    <p>&nbsp;· 결제 예약 취소 가능</p>
                 </dd>
-                <dt class="FundingRefundContent_dueDate__h4urU">결제 예정일 <strong style="color: #FF6D00">2023.02.01 17시</strong> 까지</dt>
+                <dt class="FundingRefundContent_dueDate__h4urU">위임 예정일 <strong style="color: #FF6D00">2023-02-15 17시</strong> 까지</dt>
                 <dd>
-                    <p>&nbsp;· 결제 정보 변경 가능</p>
+                    <p>&nbsp;· 개인 정보 변경 가능</p>
                 </dd>
             </dl>
             <hr class="FundingRefundContent_horizon__z-eQr">
@@ -29,9 +26,13 @@
         </div>
         <div class="content">
             <div class="content">
-                <p class="title-header">프로젝트 스토리에서 소개한 내용과 실제 리워드가 다르거나 다른 제품/콘텐츠를 모방하는 지적재산권 침해와 같은 문제가 있을 때, 혹은 메이커가 약속한 배송일에 펀딩한 리워드를 받지 못했을 때, 펀딩금 반환을 신청할 수 있어요.</p>
-                <h3 class="title">펀딩금 반환 안내</h3>
-                <p class="title-desc">펀딩 종료 후, 펀딩금 반환 문의처에서 펀딩금 반환 신청을 할 수 있습니다.<br>펀딩금 반환은 아래 정책에 따라 확인 절차를 거쳐 진행되며, 반환은 펀딩한 결제 건을 취소하는 방식으로 진행됩니다.<a href="https://pf.kakao.com/_qFVVxb#none" target="_blank" style="display: block; color: #FF6D00">펀딩금 반환 문의처 &gt; </a></p>
+                <p class="title-header">프로젝트 스토리에서 소개한 내용과 실제 내용이 다르거나 법적 문제가 있을 때 취소를 신청할 수 있어요.</p>
+                <h3 class="title">주주총회 절차 안내</h3>
+                <p class="title-desc">주주총회를 진행하려면 주주들에게 언제, 어디서, 어떤 안건을 결의할지 미리 알려주어야겠죠?<br>
+                                        그래서 주주에게 소집통지서를 보내요. 특히 투자자가 있는 회사는 정기주주총회 때 소집통지서를 보내고, 한자리에 모여 회의 진행을 하는 경우가 대부분이에요.<br>
+                                        투자사도 피투자사의 한 해 사업 보고와 재무 상황을 검토하거든요.
+참석할 수 없는 주주는 의결권 대리행사 위임장을 작성해 대리인을 보내거나, 대표이사에게 의결권을 위임해요. 회사에 관련 규정이 있다면 서면에 의한 의결권 행사를 하기도 해요.
+<br><a href="https://pf.kakao.com/_qFVVxb#none" target="_blank" style="display: block; color: #FF6D00">펀딩금 반환 문의처 &gt; </a></p>
                 <h4>1) 리워드가 지연될 경우</h4>
                 <p class="desc"><strong>메이커가 리워드 발송 시작 예정일까지 리워드를 발송하지 않을 경우, </strong>서포터는 펀딩금 반환 신청을 할 수 있습니다.<br>리워드 별 발송 시작 예정일은 다를 수 있으니, <a href="/web/wmypage/myfunding/rewardfundinglist" target="_blank" style="text-decoration: underline; color: #FF6D00">나의 펀딩 - 펀딩 내역</a>에서 펀딩한 리워드의 발송 시작 예정일을 확인하세요.<br><br></p>
                 <h4>2) 리워드에 하자가 있을 경우</h4>
