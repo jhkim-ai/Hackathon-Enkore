@@ -93,7 +93,10 @@
 </template>
 
 <style scoped>
-.FundingRefundContent_explanation__215qf strong{
+.FundingRefundContent_explanation__215qf strong {
+    color: #EC6D1E;
+}
+.v-application a{
     color: #EC6D1E;
 }
 </style>
