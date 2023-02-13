@@ -28,6 +28,10 @@ export default {
     console.log("start... fetcheFunding");
     return state.funding; // state로부터 data를 전달받음
   },
+  fetcheRight(state) {
+    console.log("start... fetcheRight");
+    return state.right; // state로부터 data를 전달받음
+  },
   fetcheBoardCurInfo(state) {
     console.log("start... fetcheBoardCurInfo");
     console.log(state.board);

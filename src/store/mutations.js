@@ -23,6 +23,9 @@ export default {
 	SET_FUNDING(state,data){
 		state.funding=data;
 	},
+	SET_RIGHT(state,data){
+		state.right=data;
+	},
 	UPDATE_DONATE(state,row){
 		console.log("start... UPDATE_DONATE");
 		state.donateDB.push(row);

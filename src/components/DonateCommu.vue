@@ -26,7 +26,7 @@
                                     <span class="desc_cmt">{{item.comment}}</span>
                                     <span class="emoticon_pack"></span>
                                 </span>
-                                <span class="info_append"><span class="txt_time">{{item.time}}</span>
+                                <span class="info_append"><span class="txt_time">{{getDate(item.time)}}</span>
                                 <like-comment>
                                     <button type="button" data-tiara-layer="comment heart" data-tiara-action-kind="Like" data-tiara-action-name="좋아요_클릭" freezebutton="" class="btn_like" data-tiara-id="14067272" data-tiara-custom="liketype=like">
                                         <span class="ico_together ico_like"></span>&nbsp;좋아요&nbsp;

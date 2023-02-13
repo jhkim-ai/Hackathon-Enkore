@@ -31,11 +31,13 @@ export default {
     this.initD();
     this.initB();
     this.initF();
+    this.initR();
   },
   methods:{
         ...mapActions({
             initD: 'INIT_DONATEDB',
             initF: 'INIT_FUNDING',
+            initR: 'INIT_RIGHT',
             initB: 'INIT_BOARDDB' // this.init()을 this.$store.dispatch('dbInit')에 매핑
         }),
     }

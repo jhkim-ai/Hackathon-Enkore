@@ -15,6 +15,7 @@ export const store = new Vuex.Store({ // 상태관리 도구
 		donateDB:[],
 		board:[],
 		funding:[],
+		right:[],
 	},
 	getters,
 	mutations,

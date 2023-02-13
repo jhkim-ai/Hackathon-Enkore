@@ -4,6 +4,7 @@ import { fetchTestList, fetchTest2List } from '../api/index.js';
 import DONATE_FILE from '../assets/db/DONATEDB.json'
 import BOARD_FILE from '../assets/db/BOARDDB.json'
 import FUNDING_FILE from '../assets/db/FUNDINGDB.json'
+import RIGHT_FILE from '../assets/db/VOTERIGHTDB.json'
 
   // [actions.js]
 	// 정의: /api/index.js 의 API 호출 함수를 사용하여 data를 mutations로 전달
@@ -52,6 +53,20 @@ export default {
 			time: d.time 
 		}))
 		commit('SET_DONATE',data);
+	},
+	INIT_RIGHT({commit}){
+		console.log("start ... INIT_RIGHT");
+		const res = RIGHT_FILE
+		const data = res.data.map(d=>({
+			seq : d.seq,
+			board: d.board,
+			user: d.user,
+			stock: d.stock,
+			qty: d.qty,
+			comment: d.comment,
+			time: d.time 
+		}))
+		commit('SET_RIGHT',data);
 	},
 	INIT_BOARDDB({commit}){
 		console.log("start ... INIT_BOARDDB");
