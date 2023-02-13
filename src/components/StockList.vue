@@ -1,5 +1,6 @@
 <template>
   <div class="table-info">
+  <v-card width="300px">
     <v-simple-table height="500px" fixed-header>
     <template v-slot:default>
       <thead>
@@ -19,6 +20,7 @@
       </tbody>
     </template>
     </v-simple-table>
+    </v-card>
   </div>
 </template>
 
