@@ -1,5 +1,6 @@
 <template>
   <div>
+  <v-card width="1000px">
     <v-simple-table height="500px" fixed-header>
     <template v-slot:default>
       <thead>
@@ -19,6 +20,7 @@
       </tbody>
     </template>
     </v-simple-table>
+    </v-card>
   </div>
 </template>
 
@@ -49,13 +51,13 @@ export default {
           name: `동국제약 “ESG 경영 강화… 투명하게 회사 운영할 것”`,
         },
         {
-          name: `Honeycomb`,
+          name: `"ESG 경영 앞장" IBK 기업은행, CDP코리아 탄소경영 아너스 클럽 수상"`,
         },
         {
-          name: `Donut`,
+          name: `[인터뷰] 정순옥 바론교육 공동대표 "글로벌 가치사슬서 낙오되지 않으려면 ESG 경영은 필수"`,
         },
         {
-          name: `KitKat`,
+          name: `삼일PwC, ESG 통합 솔루션 'ESG 데이터 플랫폼' 개발`,
         },
       ],
     }
@@ -63,6 +65,10 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+
+v-simple-table{
+  min-width: 1000px ! important;
+}
 
 </style>
