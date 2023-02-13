@@ -309,8 +309,8 @@ export default {
       opinions: [
           {
             opinion: '감사인 선임의 건',
-            agree: true,
-            disagree: false,
+            agree: false,
+            disagree: true,
           },
  
         ],
