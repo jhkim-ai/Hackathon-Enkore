@@ -65,7 +65,8 @@ export default {
 			tno: d.tno,
 			address: d.address,
 			time: d.time,
-			note: d.note
+			note: d.note,
+			pic: d.pic
 		}))
 		commit('SET_BOARD',data);
 	}
