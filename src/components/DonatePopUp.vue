@@ -270,9 +270,10 @@ export default {
                             B.push(samData[key] * 1);
                             //tmpShowTable.push({year: key * 1,amt: samData[key] * 1});
                         }
-                        A=A.reverse().slice(0,5);
-                        B=B.reverse().slice(0,5);
-                        for(var i=0;i<A.length;i++){
+                        var maxSize = 5;
+                        A=A.reverse().slice(0,maxSize);
+                        B=B.reverse().slice(0,maxSize);
+                        for(var i=maxSize-1;i>=0;i--){
                             tmpLabel.push(A[i]);
                             tmpValue.push(B[i]);
                             tmpShowTable.push({year: A[i] * 1,amt: B[i] * 1});
