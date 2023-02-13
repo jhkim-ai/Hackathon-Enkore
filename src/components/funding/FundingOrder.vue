@@ -323,17 +323,12 @@ export default {
             disagree: false,
           },
           {
-            opinion: '삼성 준법감시위원회 설치 및 운영에 관한 협약 및 규정 개정의 건',
+            opinion: '에스엠 준법감시위원회 설치 및 운영에 관한 협약 및 규정 개정의 건',
             agree: false,
             disagree: true,
           },
           {
-            opinion: '학교법인 충남삼성학원 기부금 출연의 건',
-            agree: true,
-            disagree: false,
-          },
-          {
-            opinion: '삼성바이오로직스㈜, 삼성바이오에피스㈜ 삼성 CI 상표 사용 계약 체결의 건',
+            opinion: '에스엠바이오로직스㈜, 에스엠바이오에피스㈜ 에스엠 CI 상표 사용 계약 체결의 건',
             agree: false,
             disagree: true,
           },
@@ -353,7 +348,7 @@ export default {
             disagree: false,
           },
           {
-            opinion: '삼성 준법감시위원회 설치 및 운영에 관한 협약 및 규정 개정의 건',
+            opinion: '에스엠 준법감시위원회 설치 및 운영에 관한 협약 및 규정 개정의 건',
             agree: false,
             disagree: true,
           },
@@ -363,7 +358,7 @@ export default {
             disagree: false,
           },
           {
-            opinion: '삼성바이오로직스㈜, 삼성바이오에피스㈜ 삼성 CI 상표 사용 계약 체결의 건',
+            opinion: '에스엠바이오로직스㈜, 에스엠바이오에피스㈜ 에스엠 CI 상표 사용 계약 체결의 건',
             agree: false,
             disagree: true,
           },
