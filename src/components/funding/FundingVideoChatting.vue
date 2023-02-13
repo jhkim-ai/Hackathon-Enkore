@@ -89,8 +89,9 @@ export default {
     },
     
     connect() {
-      const serverURL = "ws://3.34.40.111:8282/signal";
-      // const serverURL2 = "ws://localhost:8282/signal";
+      const serverURL = "ws://3.38.104.173:8282/signal";
+      // const serverURL = "ws://localhost:8282/signal";
+      // const serverURL = "ws://13.125.231.86:8282/signal";
       
       // 소켓 통신 선언부
       socket = new WebSocket(serverURL);
