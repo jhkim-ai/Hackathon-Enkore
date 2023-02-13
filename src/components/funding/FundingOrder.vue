@@ -60,7 +60,7 @@
                     <v-card>
                       <v-toolbar
                         color="#FF6D00"
-                      >Opening from the bottom</v-toolbar>
+                      >화상채팅</v-toolbar>
                       <v-card-text>
                         <div class="text-h2 pa-12">
                           <funding-video-chatting></funding-video-chatting>

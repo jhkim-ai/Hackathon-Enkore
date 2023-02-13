@@ -1,8 +1,26 @@
 <template>
   <div>
-      <video id="local_video" ref="local_video" autoplay v-if="localState"/>
-      <video id="remote_video" ref="remote_video" autoplay v-if="remoteState"/>
+    <div class="video_outer_line">
+      <!-- <table>
+        <tr>
+          <td>&lt; 내 화면 &gt;</td>
+          <td>&lt; 상대 화면 &gt;</td>
+        </tr>
+        <tr>
+          <td><video id="local_video" ref="local_video" autoplay v-if="localState"/></td>
+          <td><video id="remote_video" ref="remote_video" autoplay v-if="remoteState"/></td>
+        </tr> -->
       <!-- <v-btn @click="stop"> stop </v-btn> -->
+      <!-- </table> -->
+      <video id="local_video" ref="local_video" autoplay/>
+      <video id="remote_video" ref="remote_video" autoplay/>
+      <div class="local_video_name">
+        &lt; 내 화면 &gt;
+      </div>
+      <div class="remote_video_name">
+        &lt; 상대 화면 &gt;
+      </div>
+    </div>
   </div>
 </template>
 
@@ -231,6 +249,7 @@ export default {
       }else if(status === "disconnected"){
           this.log("status : "+status)
           this.remoteState = false;
+          remoteVideo.srcObject = null;
       }
     },
 
@@ -387,6 +406,49 @@ export default {
   
 </script>
 
-<style>
+<style scoped>
+.video_outer_line {
+  /* border: 1px solid #cdd3d8;   */
+  /* border-radius: 8px; */
+  width: 100%;
+}
 
+#local_video {
+  width: 49%;
+  border: 3px solid orange;  
+  border-radius: 8px;
+}
+
+#remote_video {
+  margin: 0 0 0 20px;
+  width: 49%;
+  border: 3px solid orange;  
+  border-radius: 8px;
+}
+
+.local_video_name {
+  width: 49%;
+  font-size: 20px;
+  float: left;
+  text-align: center;
+  font-weight: bolder;
+  /* border: 1px solid #FFE0B2; */
+}
+.remote_video_name {
+  margin: 0 0 0 20px;
+  width: 49%;
+  font-size: 20px;
+  float: left;
+  text-align: center;
+  font-weight: bolder;
+  /* border: 1px solid #FFE0B2; */
+}
+table {
+  border: 1px solid #FFE0B2;
+}
+table td {
+  border: 1px solid #FFE0B2;
+  text-align: center;
+  width: 100%;
+}
 </style>
