@@ -30,10 +30,12 @@ export default {
     console.log("... LOAD INIT DATA ... ");
     this.initD();
     this.initB();
+    this.initF();
   },
   methods:{
         ...mapActions({
             initD: 'INIT_DONATEDB',
+            initF: 'INIT_FUNDING',
             initB: 'INIT_BOARDDB' // this.init()을 this.$store.dispatch('dbInit')에 매핑
         }),
     }

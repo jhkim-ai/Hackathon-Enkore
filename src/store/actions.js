@@ -69,5 +69,23 @@ export default {
 			pic: d.pic
 		}))
 		commit('SET_BOARD',data);
+	},
+	INIT_FUNDING({commit}){
+		console.log("start ... INIT_BOARDDB");
+		const res = BOARD_FILE
+		const data = res.data.map(d=>({
+			board : d.board,
+			title: d.title,
+			foundation: d.foundation,
+			goal: d.goal,
+			category: d.category,
+			bizno:d.bizno,
+			tno: d.tno,
+			address: d.address,
+			time: d.time,
+			note: d.note,
+			pic: d.pic
+		}))
+		commit('SET_FUNDING',data);
 	}
 }

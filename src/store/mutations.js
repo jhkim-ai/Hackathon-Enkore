@@ -20,6 +20,9 @@ export default {
 	SET_BOARD(state,data){
 		state.board=data;
 	},
+	SET_FUNDING(state,data){
+		state.funding=data;
+	},
 	UPDATE_DONATE(state,row){
 		console.log("start... UPDATE_DONATE");
 		state.donateDB.push(row);

@@ -23,35 +23,31 @@
         </div>
         <ul class="list_fund_size list_fund fund_raising"><!---->
           <!--이거 통하나가 카드섹션 하나-->
-          <li class="listcard">
-            <!-- <intersection-observer> -->
-              <!-- <fundraising-card> -->
-                <router-link class="p_card" :to="{ name: 'FundingDetail', query: { param1: '기부내용 타이틀 자리', param2: '재단이름'} }" >
+          <li v-for="item in fetcheFunding" :key="item.board" class="listcard">
+                <router-link class="p_card" :to="{ name: 'FundingDetail', query: { param1: 1, param2: '재단이름'} }" >
                   <span class="box_thumb">
-                  <span kagetype="c203" class="img_thumb" style="background-image: url(&quot;https://mud-kage.kakaocdn.net/dn/dlBtfK/btrVqgNnWSk/ifk5ZSEIkaK8A3oMLENq1k/c203.jpg&quot;);"></span>
+                  <span kagetype="c203" class="img_thumb" v-bind:style="{ 'background-image' : 'url(' + getCurUrl(item) + ')' }"></span>
                   </span>
                   <span class="box_together">
                     <span class="bundle_tit">
                       <strong class="tit_together ellipsis_type1">
-                        <span class="tag_bundle"><!----><!---->
-                          <span class="tag_state tag_state_default">종료임박</span><!----><!----></span><!----> Sample Title 1
+                        <span class="tag_bundle">
+                          <span class="tag_state tag_state_default">종료임박</span>
+                        </span>{{item.title}}
                       </strong>
                       <span class="txt_proposer">
-                        <span class="screen_out">제안자</span>
-                        Sample Sub Title 1
-                        </span></span>
+                        <span class="screen_out"></span>
+                        </span>{{item.foundation}}</span>
                     <span class="wrap_state">
                       <span class="state_bar">
-                        <span class="state_gage state_ing" style="width: 97%; background-color: #FF6D00;"></span>
+                        <span class="state_gage state_ing" v-bind:style= "{ width: searchDonate(item) }"></span>
                       </span>
                       <span class="screen_out">달성률</span>
-                      <span class="txt_per">97%</span>
+                      <span class="txt_per">{{searchDonate(item)}}</span>
                     </span><!---->
-                    <span class="price_goal"><!----><!----> 795,900원 </span>
+                    <span class="price_goal">{{searchDonate(item)}} &nbsp;&nbsp;&nbsp; {{item.goal}}주 </span>
                   </span>
                 </router-link>
-              <!-- </fundraising-card> -->
-            <!-- </intersection-observer> -->
           </li>
           <!-- 일단 여기 데이터 임시로 우겨 넣기(Sample Data) -->
           <li class="listcard"><intersection-observer><fundraising-card><a data-tiara-layer="p_card" data-tiara-action-name="프로젝트모금함_카드_클릭" class="link_pack" href="/fundraisings/100553"><span class="box_thumb"><span kagetype="c203" class="img_thumb" style="background-image: url(&quot;https://mud-kage.kakaocdn.net/dn/dyRoof/btrN4xjeST0/5o727y2ty6mkaqhkWgHhk0/c203.jpg&quot;);"></span></span><span class="box_together"><span class="bundle_tit"><strong class="tit_together ellipsis_type1"><span class="tag_bundle"><!----><!----><span class="tag_state tag_state_default">종료임박</span><!----><!----></span><!----> 한 쪽 눈을 실명한 늦깎이 탈북학생을 응원해 주세요 </strong><span class="txt_proposer"><span class="screen_out">제안자</span>사단법인 남북사랑네트워크</span></span><span class="wrap_state"><span class="state_bar"><span class="state_gage state_ing" style="width: 63%; background-color: #FF6D00"></span></span><span class="screen_out">달성률</span><span class="txt_per">63%</span></span><!----><span class="price_goal"><!----><!----> 3,821,100원 </span></span></a><!----><!----></fundraising-card></intersection-observer></li>
@@ -65,11 +61,17 @@
 <script>
 import "@/assets/css/kakao.css";
 import HomeCarousel from '@/components/HomeCarousel.vue';
+import{ mapGetters } from 'vuex';
 
 export default {
   name: "FundingView",
   components: {
     HomeCarousel,
+  },
+  computed: {
+    ...mapGetters([
+      'fetcheFunding'
+    ]),
   },
   methods: {
     clickList() {
@@ -80,6 +82,26 @@ export default {
     },
     searchFunding() {
       alert('click Test');
+    },
+    getCurUrl(item){
+      return item.pic;
+    },
+    getBoard(item){
+      return item.board;
+    },
+    searchDonate(item){
+      console.log(item);
+      /*
+      var subSum=0;
+      var subData = this.fetcheBoardCurInfo
+      for(var al in subData){
+        if(subData[al].board==item.board){
+          for(var a in subData[al].stock){subSum += subData[al].stock[a];}
+          return (subSum/item.goal*100) + "%";
+        } 
+      }
+      return subSum*/
+      return 10;
     }
   },
 }
