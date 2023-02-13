@@ -1,5 +1,6 @@
 <template>
   <div>
+  <enkore-my-page></enkore-my-page>
     <div id="mArticle">
         <div class="donate_cont" style="width:initial">
             <h2 class="screen_out">마이페이지</h2>
@@ -31,11 +32,11 @@
                                 </div>
                             </div>
                             <div v-for="item in fetchedDonate" :key="item.time" class="area_receipt">
-                                <h4 class="tit_area"> 2020년 12월 <span class="emph_num">(1건)</span></h4>
+                                <h4 class="tit_area"> {{getTitleDate(item.time)}} <span class="emph_num">(1건)</span></h4>
                                 <div class="box_receipt">
                                     <ul class="list_receipt list_donate">
                                         <li class="item_donate">
-                                            <p class="txt_sumdata"> ${this.getDate({{item.time}})} </p>
+                                            <p class="txt_sumdata"> {{getDate(item.time)}} </p>
                                             <p class="tit_sum"><a data-tiara-layer="title" data-tiara-action-name="모금함_클릭" class="link_sum" href="/fundraisings/81894">{{item.comment}}</a></p>
                                             <div class="donate_numinfo"><strong class="num_sumprice">{{item.stock}}</strong>
                                                 <span class="txt_sumprice"> {{item.qty}}주 (익명기부 OR 직접기부)</span></div>
@@ -67,9 +68,9 @@
                             <div class="box_select">
                                 <div class="area_name">
                                 <div class="link_myprofile">
-                                    <strong class="txt_nick">해커톤2조계정</strong>
+                                <strong class="txt_nick">gom626</strong>
                                     <div class="box_name">
-                                        <strong class="txt_name"> ID-~~~ </strong>
+                                        <strong class="txt_name">장승민</strong>
                                     </div>
                                 </div>
                             </div>
@@ -88,9 +89,9 @@
                             </div>
                         </div>
                         <div>
-                            총기부금액 ~~ 한정 
+                            <v-row>총 펀딩참여횟수     : 3 회</v-row>
+                            <v-row>총 펀딩내역         : 300 주</v-row>
                         </div>
-                            {{fetchedDonate}}
                     </div>
                 </div>
             </div>
@@ -101,12 +102,29 @@
 
 <script>
 
+import{ mapGetters } from 'vuex';
+import EnkoreMyPage from '@/views/EnkoreMyPage.vue';
+
+
 export default {
-  components: { 
-
-  },
-
-}
+    name: "FundingMyPage",
+    components: {
+        EnkoreMyPage
+    },
+    computed: {
+        ...mapGetters([
+            'fetchedDonate',
+        ]),
+    },
+    methods:{
+        getDate(date){
+            return date.slice(0,4) + "." + date.slice(4,6) + "." + date.slice(6,8);
+        },
+        getTitleDate(date){
+            return date.slice(0,4) + "년 " + date.slice(4,6).replace("0","") + "월";
+        }
+    }
+};
 </script>
 
 <style scoped>
