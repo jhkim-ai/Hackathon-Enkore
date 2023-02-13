@@ -3,10 +3,11 @@
     <div class="service_title">
       <h4>이사선임</h4>
       <i class="fas fa-gift funding_menu">&nbsp; 의결권펀딩</i>
-      <div class="funding_title"><b>[삼성전자] 청렴결백 대표자</b></div>
+      <div class="funding_title"><b>[에스엠] 감사인 선임 저지를 통한 카리나 구하기</b></div>
       <div class="funding_sub_title">
         여러분들이 주신 한표 한표 힘받아 투명한 주주총회가 될 수 있도록 보여드리겠습니다.
-        이번 주주총회에서 새로운 이사/감사를 통해 New 삼성에 박차를 가하는 삼성전자가 되도록 힘을 쏟겠습니다.
+        이번 주주총회에서 감사인 선임 결사 반대를 통해 카리나와 주주가 행복한 SM을 만들겠습니다!
+        
       </div>
       <div class="achievement_area">
         <span class="achievement_rate">2,530</span>
@@ -16,7 +17,7 @@
         </v-chip>
       </div>
       <div class="total_amount_area">
-        <span class="total_amount">12,662,530</span>
+        <span class="total_amount">200</span>
         <span class="total_amount_won"> 주</span>
         <v-chip class="info_chip" small color="#F5F5F5" text-color="#424242">
           <b>{{ member }}명 참여</b>
@@ -41,7 +42,7 @@
             </v-list-item-avatar>
             <v-list-item-content>
               <div class="text-overline">
-                <b>법무법인 김앤장</b>
+                <b>얼라인파트너스</b>
                 <div class="webcam_chatting_btn">
                 <v-dialog
                   transition="dialog-bottom-transition"
@@ -307,65 +308,11 @@ export default {
       rules: [v => v.length <= 3 || 'Max 3 characters'],
       opinions: [
           {
-            opinion: '제52기 정기주주총회 소집결정의 건',
+            opinion: '감사인 선임의 건',
             agree: true,
             disagree: false,
           },
-          {
-            opinion: '제52기 정기주주총회 회의 목적사항 결정의 건',
-            agree: false,
-            disagree: true,
-          },
-          {
-            opinion: '2021년 사회공헌 매칭기금 운영계획 승인의 건',
-            agree: true,
-            disagree: false,
-          },
-          {
-            opinion: '삼성 준법감시위원회 설치 및 운영에 관한 협약 및 규정 개정의 건',
-            agree: false,
-            disagree: true,
-          },
-          {
-            opinion: '학교법인 충남삼성학원 기부금 출연의 건',
-            agree: true,
-            disagree: false,
-          },
-          {
-            opinion: '삼성바이오로직스㈜, 삼성바이오에피스㈜ 삼성 CI 상표 사용 계약 체결의 건',
-            agree: false,
-            disagree: true,
-          },
-          {
-            opinion: '제52기 정기주주총회 소집결정의 건',
-            agree: true,
-            disagree: false,
-          },
-          {
-            opinion: '제52기 정기주주총회 회의 목적사항 결정의 건',
-            agree: false,
-            disagree: true,
-          },
-          {
-            opinion: '2021년 사회공헌 매칭기금 운영계획 승인의 건',
-            agree: true,
-            disagree: false,
-          },
-          {
-            opinion: '삼성 준법감시위원회 설치 및 운영에 관한 협약 및 규정 개정의 건',
-            agree: false,
-            disagree: true,
-          },
-          {
-            opinion: '학교법인 충남삼성학원 기부금 출연의 건',
-            agree: true,
-            disagree: false,
-          },
-          {
-            opinion: '삼성바이오로직스㈜, 삼성바이오에피스㈜ 삼성 CI 상표 사용 계약 체결의 건',
-            agree: false,
-            disagree: true,
-          },
+ 
         ],
         headers: [
           {
