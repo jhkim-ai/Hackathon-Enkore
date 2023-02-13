@@ -1,6 +1,8 @@
 <template>
   <div>
-    <v-carousel>
+    <v-carousel
+    cycle
+    interval = 2500>
       <v-carousel-item
         v-for="(item, i) in items"
         :key="i"
