@@ -10,6 +10,7 @@ import EnkoreMyPage from '../views/EnkoreMyPage.vue';
 import DonateMyPage from '../components/DonateMyPage.vue';
 import FundingMyPage from '../components/mypage/FundingMyPage.vue';
 import ProjectMyPage from '../components/mypage/ProjectMyPage.vue';
+import EsgPage from '../components/EsgPage.vue';
 
 Vue.use(VueRouter);
 
@@ -65,6 +66,12 @@ export const router = new VueRouter({
       path: '/myPageDonate',
       component: DonateMyPage,
       name: 'DonateMyPage',
+      props: true,
+    },
+    {
+      path: '/esgPage',
+      component: EsgPage,
+      name: 'EsgPage',
       props: true,
     },
     //민주추가 부분(시작)

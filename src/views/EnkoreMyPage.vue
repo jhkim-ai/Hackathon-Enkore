@@ -43,6 +43,11 @@ export default {
                     icon: 'mdi-file-document-check',
                     to: '/myPageProject'
                 },
+                {
+                    title: 'ESG 자가측정',
+                    icon: 'mdi-sprout',
+                    to: '/esgPage'
+                },
             ]
         }
     },
