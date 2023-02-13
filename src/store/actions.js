@@ -3,6 +3,7 @@ import { fetchTestList, fetchTest2List } from '../api/index.js';
 // 초기데이터 파일 읽어오기
 import DONATE_FILE from '../assets/db/DONATEDB.json'
 import BOARD_FILE from '../assets/db/BOARDDB.json'
+import FUNDING_FILE from '../assets/db/FUNDINGDB.json'
 
   // [actions.js]
 	// 정의: /api/index.js 의 API 호출 함수를 사용하여 data를 mutations로 전달
@@ -71,13 +72,14 @@ export default {
 		commit('SET_BOARD',data);
 	},
 	INIT_FUNDING({commit}){
-		console.log("start ... INIT_BOARDDB");
-		const res = BOARD_FILE
+		console.log("start ... INIT_FUNDING");
+		const res = FUNDING_FILE
 		const data = res.data.map(d=>({
 			board : d.board,
 			title: d.title,
 			foundation: d.foundation,
 			goal: d.goal,
+			now: d.now,
 			category: d.category,
 			bizno:d.bizno,
 			tno: d.tno,
