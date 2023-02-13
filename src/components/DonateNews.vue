@@ -20,20 +20,20 @@
                             </select><i class="icon expand-more SelectBoxLabel_electBoxLabelIcon__2EwnB" aria-hidden="true"></i></label></span></div>
             </div><a href="/web/campaign/detailPost/168921/news/296369" style="text-decoration: none;">
                 <div class="NewsList_newsListContainer__3RSEH">
-                    <p><span class="NewsList_newsListHead__3kesO">리워드 안내</span></p>
+                    <p><span class="NewsList_newsListHead__3kesO">안내</span></p>
                     <p class="NewsList_newsListText__1RIVZ">🔔오늘 자정에 프로젝트가 종료 됩니다🔔<span class="wz badge NewsList_newsListBadge__2WA-c">N</span></p>
                     <p class="NewsList_newsListDate__3iDLO">6시간 전</p>
                 </div>
             </a><a href="/web/campaign/detailPost/168921/news/292437" style="text-decoration: none;">
                 <div class="NewsList_newsListContainer__3RSEH">
                     <p><span class="NewsList_newsListHead__3kesO">이벤트</span><span class="NewsList_newsListLine__3UGGy"></span><span class="NewsList_newsListState__2f-4X">오픈예정</span></p>
-                    <p class="NewsList_newsListText__1RIVZ">📣MOFT 스냅 랩탑 폰 홀더2 체험단을 발표 합니다!</p>
+                    <p class="NewsList_newsListText__1RIVZ">📣선착순 10명에게 어르신들이 직접 짠 목도리를 드립니다</p>
                     <p class="NewsList_newsListDate__3iDLO">2023.01.02</p>
                 </div>
             </a><a href="/web/campaign/detailPost/168921/news/290406" style="text-decoration: none;">
                 <div class="NewsList_newsListContainer__3RSEH">
                     <p><span class="NewsList_newsListHead__3kesO">이벤트</span><span class="NewsList_newsListLine__3UGGy"></span><span class="NewsList_newsListState__2f-4X">오픈예정</span></p>
-                    <p class="NewsList_newsListText__1RIVZ">🙋MOFT 스냅 랩탑 폰 홀더2 체험단 모집!🙋&zwj;♂️</p>
+                    <p class="NewsList_newsListText__1RIVZ">🙋자원봉사자 모집!🙋&zwj;♂️</p>
                     <p class="NewsList_newsListDate__3iDLO">2022.12.22</p>
                 </div>
             </a>
