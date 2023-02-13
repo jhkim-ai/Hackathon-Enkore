@@ -2,7 +2,7 @@
   <div>
   <enkore-my-page></enkore-my-page>
     <div id="mArticle">
-        <div class="donate_cont" style="width:initial">
+        <div class="donate_cont test" style="width:initial">
             <h2 class="screen_out">마이페이지</h2>
             <div class="detail_outer_box">
                 <div class="detail_inner_left_box">
@@ -208,5 +208,9 @@ export default {
 
 .num_sumprice {
     max-width: 800px;
+}
+
+.test {
+    margin: -100px 0 0 0;
 }
 </style>
