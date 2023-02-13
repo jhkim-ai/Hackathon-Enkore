@@ -1,8 +1,8 @@
 <template>
   <div>
     <div class="service_title">
-      <h4>category</h4>
-      <i class="fas fa-gift funding_menu">&nbsp; Main 메뉴명(의결권펀딩)</i>
+      <h4>이사선임</h4>
+      <i class="fas fa-gift funding_menu">&nbsp; 의결권펀딩</i>
       <div class="funding_title"><b>[삼성전자] 청렴결백 대표자</b></div>
       <div class="funding_sub_title">
         여러분들이 주신 한표 한표 힘받아 투명한 주주총회가 될 수 있도록 보여드리겠습니다.
@@ -17,7 +17,7 @@
       </div>
       <div class="total_amount_area">
         <span class="total_amount">12,662,530</span>
-        <span class="total_amount_won"> 원</span>
+        <span class="total_amount_won"> 주</span>
         <v-chip class="info_chip" small color="#F5F5F5" text-color="#424242">
           <b>{{ member }}명 참여</b>
         </v-chip>
@@ -59,7 +59,7 @@
                   <template v-slot:default="dialog">
                     <v-card>
                       <v-toolbar
-                        color="#FF6D00"
+                        color="orange"
                       >화상채팅</v-toolbar>
                       <v-card-text>
                         <div class="text-h2 pa-12">
