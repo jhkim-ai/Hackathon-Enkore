@@ -3,7 +3,7 @@
     <div class="News_left__B0t9L">
         <div class="RewardNewsList_rewardNewsListContainer__1fKjZ">
             <div class="NewsListHeader_newsListHeaderContainer__33FAb">
-                <div><span class="NewsListHeader_newsListTitleContainer__2TVX3"><span class="NewsListHeader_title__30zaW">새소식</span><span class="NewsListHeader_count__uE-y_">3</span></span><span class="NewsListHeader_newsListSelectContainer__3ua9-"><label class="SelectBoxLabel_selectBoxLabelContainer__Ynbe4"><select class="NewsListHeader_newsListSelectBox__2soJi NewsListHeader_option__pA7-r">
+                <div><span class="NewsListHeader_newsListTitleContainer__2TVX3"><span class="NewsListHeader_title__30zaW">새소식</span><span class="NewsListHeader_count__uE-y_" style="color:#EC6D1E" >3</span></span><span class="NewsListHeader_newsListSelectContainer__3ua9-"><label class="SelectBoxLabel_selectBoxLabelContainer__Ynbe4"><select class="NewsListHeader_newsListSelectBox__2soJi NewsListHeader_option__pA7-r">
                                 <option class="NewsListHeader_newsListOption__2IgWD" value="">전체</option>
                                 <option class="NewsListHeader_newsListOption__2IgWD" value="F">FAQ</option>
                                 <option class="NewsListHeader_newsListOption__2IgWD" value="P">결제</option>
@@ -41,3 +41,23 @@
     </div>
 </div>
 </template>
+
+<style scoped>
+.NewsList_newsListContainer__3RSEH .NewsList_newsListText__1RIVZ .NewsList_newsListBadge__2WA-c {
+    display: inline-block;
+    margin-top: -2px;
+    margin-left: 8px;
+    border: 0;
+    border-radius: 8px;
+    background: #EC6D1E;
+    padding: 0 5px;
+    height: 16px;
+    vertical-align: middle;
+    line-height: 16px;
+    letter-spacing: 0;
+    color: #fff;
+    font-size: 10px;
+    font-weight: 500;
+    box-sizing: border-box;
+}
+</style>

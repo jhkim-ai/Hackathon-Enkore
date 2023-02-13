@@ -60,3 +60,9 @@ export default {
     }
 }
 </script>
+
+<style>
+.emph_sign {
+    color: #EC6D1E;
+}
+</style>
